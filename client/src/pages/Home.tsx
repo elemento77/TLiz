@@ -1,5 +1,5 @@
 /**
- * Home Page — Tarot da Luna
+ * Home Page — Tarot da Liz
  * Design: Esoteric Dark — Cormorant Garamond + DM Sans
  * Colors: Void black, deep indigo, gold, parchment, smoke
  */

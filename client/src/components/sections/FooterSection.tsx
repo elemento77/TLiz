@@ -15,7 +15,7 @@ export default function FooterSection() {
           {/* Brand */}
           <div>
             <a href="#" className="font-display text-lg text-parchment tracking-widest hover:text-gold transition-colors">
-              ☽ Tarot da Luna
+              ☽ Tarot da Liz
             </a>
             <p className="font-body text-xs text-smoke/50 mt-2 leading-relaxed max-w-xs">
               Leituras de tarot online com clareza, profundidade e propósito.
@@ -44,11 +44,11 @@ export default function FooterSection() {
           <div>
             <p className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke/40 mb-3">Contato</p>
             <a
-              href="mailto:contato@tarotdaluna.com.br"
+              href="mailto:contato@tarotdaliz.com.br"
               className="flex items-center gap-2 font-body text-xs text-smoke/60 hover:text-gold transition-colors mb-2"
             >
               <Mail size={13} />
-              contato@tarotdaluna.com.br
+              contato@tarotdaliz.com.br
             </a>
             <a
               href="https://wa.me/5511999999999"
@@ -67,7 +67,7 @@ export default function FooterSection() {
         {/* Bottom */}
         <div className="border-t border-surface/50 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-body text-[10px] text-smoke/30">
-            © {year} Tarot da Luna. Todos os direitos reservados.
+            © {year} Tarot da Liz. Todos os direitos reservados.
           </p>
           <div className="flex gap-5">
             {[

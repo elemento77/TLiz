@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="container flex items-center justify-between h-14">
         {/* Brand */}
         <a href="#" className="font-display text-lg text-parchment tracking-widest hover:text-gold transition-colors">
-          ☽ Tarot da Luna
+          ☽ Tarot da Liz
         </a>
 
         {/* Desktop */}
