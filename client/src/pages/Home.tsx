@@ -1,25 +1,26 @@
 /**
- * Home Page — Sales Conversion Landing Page
- * Design: Neo-Brutalist Commerce
- * Typography: Space Grotesk (display) + DM Sans (body)
- * Colors: Off-white cream, charcoal, burnt orange, forest green, danger red
+ * Home Page — Tarot da Luna
+ * Design: Esoteric Dark — Cormorant Garamond + DM Sans
+ * Colors: Void black, deep indigo, gold, parchment, smoke
  */
 
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import PricingSection from "@/components/sections/PricingSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
 import FooterSection from "@/components/sections/FooterSection";
-import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-cream">
+    <div className="min-h-screen flex flex-col bg-void">
       <Navbar />
       <main>
         <HeroSection />
-        <SocialProofSection />
+        <div id="depoimentos">
+          <SocialProofSection />
+        </div>
         <PricingSection />
         <FAQSection />
         <CTASection />

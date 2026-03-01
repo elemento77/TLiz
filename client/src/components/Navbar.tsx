@@ -1,80 +1,58 @@
 /**
- * Navbar — Neo-Brutalist sticky navigation
- * Fixed top bar with bold brand name and anchor links
+ * Navbar — Esoteric dark theme
+ * Minimal, elegant, dark background with gold accents
  */
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const links = [
-    { label: "Planos", href: "#planos" },
+    { label: "Rituais", href: "#rituais" },
     { label: "Dúvidas", href: "#faq" },
     { label: "Contato", href: "#contato" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-cream border-b-3 border-charcoal">
-      <div className="container flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-void/95 backdrop-blur-sm border-b border-gold-dim">
+      <div className="container flex items-center justify-between h-14">
         {/* Brand */}
-        <a
-          href="#"
-          className="font-display font-bold text-xl tracking-tight text-charcoal hover:text-burnt-orange transition-colors"
-        >
-          SuaMarca<span className="text-burnt-orange">.</span>
+        <a href="#" className="font-display text-lg text-parchment tracking-widest hover:text-gold transition-colors">
+          ☽ Tarot da Luna
         </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-display font-medium text-sm uppercase tracking-wider px-4 py-2 text-charcoal hover:bg-charcoal hover:text-cream transition-all duration-100"
-            >
-              {link.label}
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-6">
+          {links.map((l) => (
+            <a key={l.href} href={l.href}
+              className="font-body text-xs uppercase tracking-widest text-smoke hover:text-gold transition-colors">
+              {l.label}
             </a>
           ))}
-          <a
-            href="#planos"
-            className="ml-3 brutal-btn bg-burnt-orange text-white px-5 py-2 text-sm uppercase tracking-wider"
-          >
-            Comprar Agora
+          <a href="#rituais" className="btn-gold text-xs px-5 py-2">
+            Agendar Leitura
           </a>
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden brutal-border-thin p-2 bg-white"
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        {/* Mobile toggle */}
+        <button onClick={() => setOpen(!open)} className="md:hidden text-smoke hover:text-gold transition-colors p-1">
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden border-t-3 border-charcoal bg-cream">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block font-display font-medium text-sm uppercase tracking-wider px-4 py-3 text-charcoal hover:bg-charcoal hover:text-cream border-b-2 border-charcoal/10 transition-all"
-            >
-              {link.label}
+      {open && (
+        <div className="md:hidden bg-void border-t border-surface">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+              className="block font-body text-xs uppercase tracking-widest text-smoke hover:text-gold px-5 py-3 border-b border-surface/50 transition-colors">
+              {l.label}
             </a>
           ))}
           <div className="p-4">
-            <a
-              href="#planos"
-              onClick={() => setMobileOpen(false)}
-              className="block text-center brutal-btn bg-burnt-orange text-white px-5 py-3 text-sm uppercase tracking-wider"
-            >
-              Comprar Agora
+            <a href="#rituais" onClick={() => setOpen(false)} className="btn-gold w-full text-xs py-3 block text-center">
+              Agendar Leitura
             </a>
           </div>
         </div>
