@@ -1,25 +1,30 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * Home Page — Sales Conversion Landing Page
+ * Design: Neo-Brutalist Commerce
+ * Typography: Space Grotesk (display) + DM Sans (body)
+ * Colors: Off-white cream, charcoal, burnt orange, forest green, danger red
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
 
+import HeroSection from "@/components/sections/HeroSection";
+import SocialProofSection from "@/components/sections/SocialProofSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FAQSection from "@/components/sections/FAQSection";
+import CTASection from "@/components/sections/CTASection";
+import FooterSection from "@/components/sections/FooterSection";
+import Navbar from "@/components/Navbar";
+
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-cream">
+      <Navbar />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <HeroSection />
+        <SocialProofSection />
+        <PricingSection />
+        <FAQSection />
+        <CTASection />
       </main>
+      <FooterSection />
     </div>
   );
 }
