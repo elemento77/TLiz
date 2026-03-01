@@ -14,7 +14,7 @@ import FooterSection from "@/components/sections/FooterSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-void">
+    <div className="min-h-screen flex flex-col bg-transparent">
       <Navbar />
       <main>
         <HeroSection />

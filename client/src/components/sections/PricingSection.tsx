@@ -28,66 +28,94 @@ interface Ritual {
 
 const rituals: Ritual[] = [
   {
-    symbol: "☽",
-    name: "Leitura Rápida",
-    tagline: "Uma pergunta, uma resposta",
-    price: "R$ 47",
-    note: "pagamento único",
-    desc: "Para quem tem uma dúvida pontual e precisa de clareza imediata. Leitura com 3 cartas, entregue por escrito.",
+    symbol: "✧",
+    name: "Pergunta Única",
+    tagline: "Áudio ou Texto",
+    price: "R$ 60",
+    note: "com acessibilidade",
+    desc: "Ideal para uma dúvida urgente e pontual que precisa de clareza imediata.",
     features: [
-      { text: "Tiragem de 3 cartas", ok: true },
       { text: "1 pergunta ou tema", ok: true },
-      { text: "Entrega por escrito (texto)", ok: true },
-      { text: "Prazo: até 24 horas", ok: true },
-      { text: "Áudio explicativo", ok: false },
-      { text: "Tiragem completa (10 cartas)", ok: false },
-      { text: "Revisão ou dúvidas pós-leitura", ok: false },
+      { text: "Entrega em áudio ou texto", ok: true },
+      { text: "Clareza imediata e pontual", ok: true },
+      { text: "Análise mais ampla", ok: false },
+      { text: "Sessão ao vivo", ok: false },
     ],
     featured: false,
-    cta: "Agendar Leitura Rápida",
+    cta: "Agendar Pergunta",
     mpLink: "#",
   },
   {
     symbol: "✦",
-    name: "Ritual Completo",
-    tagline: "A leitura mais escolhida",
-    price: "R$ 127",
-    note: "pagamento único",
-    desc: "Leitura aprofundada com tiragem completa, áudio explicativo e espaço para dúvidas. Ideal para momentos de virada.",
+    name: "Combo 3 Perguntas",
+    tagline: "Visão mais completa",
+    price: "R$ 130",
+    note: "respostas em PDF",
+    desc: "Uma análise mais ampla para situações com mais de um desdobramento, permitindo uma visão mais completa do cenário e dos próximos passos.",
     features: [
-      { text: "Tiragem de 10 cartas (Cruz Celta)", ok: true },
-      { text: "Até 3 perguntas ou temas", ok: true },
-      { text: "Entrega por escrito (texto detalhado)", ok: true },
-      { text: "Áudio explicativo (15–20 min)", ok: true },
-      { text: "Prazo: até 48 horas", ok: true },
-      { text: "1 rodada de dúvidas pós-leitura", ok: true },
-      { text: "Sessão ao vivo (videochamada)", ok: false },
+      { text: "Até 3 perguntas ou desdobramentos", ok: true },
+      { text: "Entrega de PDF detalhado", ok: true },
+      { text: "Visão abrangente do cenário", ok: true },
+      { text: "Orientações dos próximos passos", ok: true },
+      { text: "Sessão ao vivo", ok: false },
     ],
-    featured: true,
-    badge: "Mais Escolhido",
-    cta: "Agendar Ritual Completo",
+    featured: false,
+    cta: "Agendar Combo",
     mpLink: "#",
   },
   {
     symbol: "☿",
-    name: "Sessão ao Vivo",
-    tagline: "Presença total, em tempo real",
-    price: "R$ 247",
-    note: "pagamento único",
-    desc: "Sessão de 60 minutos por videochamada. Você faz perguntas em tempo real, as cartas respondem ao vivo.",
+    name: "Sessão Estratégica",
+    tagline: "Profundo e transformador",
+    price: "R$ 197",
+    note: "1h por vídeo",
+    desc: "Não é apenas uma leitura, é um alinhamento completo. Mergulhamos na sua situação com foco total em clareza e estratégia.",
     features: [
-      { text: "Sessão ao vivo por videochamada (60 min)", ok: true },
-      { text: "Perguntas ilimitadas durante a sessão", ok: true },
-      { text: "Gravação da sessão disponível", ok: true },
-      { text: "Resumo escrito pós-sessão", ok: true },
-      { text: "Prazo: agendamento em até 3 dias", ok: true },
-      { text: "Acompanhamento mensal", ok: true },
-      { text: "Tiragem adicional de cartas pós-sessão", ok: true },
+      { text: "Sessão de 1h ao vivo por WhatsApp", ok: true },
+      { text: "Análise detalhada e investigação de áreas", ok: true },
+      { text: "Plano de Ação de 7 Dias (PDF)", ok: true },
+      { text: "Bônus: Arcano Regente Pessoal (PDF)", ok: true },
     ],
-    featured: false,
-    cta: "Agendar Sessão ao Vivo",
+    featured: true,
+    badge: "Mais Buscado",
+    cta: "Agendar Sessão",
     mpLink: "#",
   },
+  {
+    symbol: "☉",
+    name: "Mandala Anual",
+    tagline: "Mapa dos próximos 12 meses",
+    price: "R$ 247",
+    note: "PDF + Notas explicativas",
+    desc: "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
+    features: [
+      { text: "Previsões mês a mês", ok: true },
+      { text: "Identificação de oportunidades", ok: true },
+      { text: "Reconhecer pontos de atenção", ok: true },
+      { text: "Bônus: Arcano Regente Pessoal", ok: true },
+    ],
+    featured: false,
+    cta: "Fazer Mandala",
+    mpLink: "#",
+  },
+  {
+    symbol: "☾",
+    name: "Jogo das Sombras",
+    tagline: "Desperte sua Força Interior",
+    price: "R$ 297",
+    note: "90 min por vídeo",
+    desc: "Imersão profunda sob a vibração de Lilith para confrontar padrões ocultos e revelar a força que já existe dentro de você.",
+    features: [
+      { text: "Sessão de 90min ao vivo (WhatsApp)", ok: true },
+      { text: "Identificar padrões e bloqueios", ok: true },
+      { text: "Plano estratégico de 7 dias", ok: true },
+      { text: "Bônus: Arcano Regente Pessoal", ok: true },
+    ],
+    featured: true,
+    badge: "Imersão Profunda",
+    cta: "Agendar Jogo",
+    mpLink: "#",
+  }
 ];
 
 function RitualCard({ r, i }: { r: Ritual; i: number }) {
@@ -154,11 +182,10 @@ function RitualCard({ r, i }: { r: Ritual; i: number }) {
       <div className="p-6 pt-0">
         <button
           onClick={handleBuy}
-          className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 ${
-            r.featured
+          className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 ${r.featured
               ? "bg-gold text-void hover:bg-gold/90 glow-gold-sm"
               : "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8"
-          }`}
+            }`}
         >
           {r.cta}
         </button>
@@ -179,17 +206,17 @@ export default function PricingSection() {
       <div className="container">
         {/* Heading */}
         <div className="text-center mb-12">
-          <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-3">✦ Escolha seu ritual</p>
+          <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-3">✦ Explorar</p>
           <h2 className="font-display text-3xl md:text-4xl text-parchment mb-3">
-            Três caminhos, uma mesma clareza
+            Modalidades de Atendimento
           </h2>
           <p className="font-body text-sm text-smoke max-w-md mx-auto leading-relaxed">
-            Veja exatamente o que está incluso em cada leitura antes de decidir. Sem surpresas.
+            Escolha o formato ideal para o seu momento e agende sua leitura.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start justify-center">
           {rituals.map((r, i) => (
             <RitualCard key={r.name} r={r} i={i} />
           ))}

@@ -72,7 +72,14 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: oklch(0.10 0.015 285 / 0.85); /* fallback dark semi-transparent */
+    background-image: url("/fundopeixinho.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+
     font-family: var(--font-body);
     font-size: 15px;
   }
@@ -237,14 +244,5 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar-track { background: oklch(0.10 0.015 285); }
 ::-webkit-scrollbar-thumb { background: oklch(0.40 0.06 80); }
 
-/* Noise texture overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 128px 128px;
-}
+/* Noise texture overlay disabled to show background clear */
+/* body::before { ... } */
