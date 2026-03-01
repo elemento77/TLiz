@@ -19,7 +19,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       - name: Build
-        run: pnpm run build
+        run: |
+          pnpm exec vite build
+          cp dist/public/index.html dist/public/404.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
