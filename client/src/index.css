@@ -76,32 +76,37 @@
   body {
     @apply text-foreground;
     background-color: var(--background);
-    background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.85)), url("/fundopeixinho3.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: fixed;
-    /* Parallax on desktop */
-
     font-family: var(--font-body);
     font-size: 15px;
   }
 
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.85)), url("/fundopeixinho3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
   /* Tablets (768px or less) */
   @media (max-width: 768px) {
-    body {
+    body::before {
       background-size: contain;
-      background-attachment: scroll;
-      /* Fixes iOS zoom bug */
+      background-position: center center;
     }
   }
 
   /* Mobile Phones (600px or less) */
   @media (max-width: 600px) {
-    body {
+    body::before {
       background-size: contain;
       background-position: top center;
-      background-attachment: scroll;
     }
   }
 
