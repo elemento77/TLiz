@@ -75,8 +75,9 @@
   body {
     @apply text-foreground;
     background-color: var(--background);
-    background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.65)), url("/fundopeixinho.jpeg");
-    background-size: cover;
+    background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.85)), url("/fundopeixinho.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center top;
     background-attachment: fixed;
 
