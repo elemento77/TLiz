@@ -72,6 +72,7 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Default (Desktop) */
   body {
     @apply text-foreground;
     background-color: var(--background);
@@ -79,17 +80,28 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    background-attachment: scroll;
-    /* Fixes iOS mobile zoom bug */
+    background-attachment: fixed;
+    /* Parallax on desktop */
 
     font-family: var(--font-body);
     font-size: 15px;
   }
 
-  @media (min-width: 768px) {
+  /* Tablets (768px or less) */
+  @media (max-width: 768px) {
     body {
-      background-attachment: fixed;
-      background-position: center center;
+      background-size: contain;
+      background-attachment: scroll;
+      /* Fixes iOS zoom bug */
+    }
+  }
+
+  /* Mobile Phones (600px or less) */
+  @media (max-width: 600px) {
+    body {
+      background-size: contain;
+      background-position: top center;
+      background-attachment: scroll;
     }
   }
 
