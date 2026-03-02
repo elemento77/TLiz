@@ -17,7 +17,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-void/10 to-void/40" />
       </div>
 
-      <div className="container relative z-10 py-20">
+      <div className="container relative z-10 py-20 flex flex-col items-center lg:items-start text-center lg:text-left">
         <div className="max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -46,13 +46,14 @@ export default function HeroSection() {
               <div className="text-[13px] md:text-[14px] border-t border-surface/50 pt-4 mt-5">
                 <p className="mb-2"><strong className="text-parchment font-medium">Sou Liz Torres</strong>, taróloga com 15 anos de experiência dedicados a iluminar caminhos.</p>
                 <p>Minha missão é utilizar o Tarot como uma poderosa ferramenta de autoconhecimento, despertando a força que já habita em você, trazendo clareza para suas decisões e serenidade para trilhar uma jornada com propósito e equilíbrio.</p>
+                <p className="mt-3 text-gold-dim">Método de tiragem: Tarô Millennium Thoth</p>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a href="#rituais" className="btn-gold">
-                Ver Modalidades
+                Escolher meu Jogo
               </a>
               <a href="#faq" className="btn-ghost">
                 Tirar Dúvidas

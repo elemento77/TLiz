@@ -34,11 +34,11 @@ export default function CTASection() {
           </h2>
 
           <p className="font-body text-sm text-smoke mb-8 leading-relaxed">
-            Escolha seu ritual, pague com segurança e receba sua leitura. Sem precisar mandar mensagem primeiro.
+            Escolha seu jogo, pague com segurança e receba sua leitura. Sem precisar mandar mensagem primeiro.
           </p>
 
           <a href="#rituais" className="btn-gold">
-            Escolher meu Ritual
+            Escolher meu Jogo
           </a>
 
           <div className="flex items-center justify-center gap-5 mt-8 flex-wrap">

@@ -183,8 +183,8 @@ function RitualCard({ r, i }: { r: Ritual; i: number }) {
         <button
           onClick={handleBuy}
           className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 ${r.featured
-              ? "bg-gold text-void hover:bg-gold/90 glow-gold-sm"
-              : "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8"
+            ? "bg-gold text-void hover:bg-gold/90 glow-gold-sm"
+            : "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8"
             }`}
         >
           {r.cta}
@@ -208,7 +208,7 @@ export default function PricingSection() {
         <div className="text-center mb-12">
           <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-3">✦ Explorar</p>
           <h2 className="font-display text-3xl md:text-4xl text-parchment mb-3">
-            Modalidades de Atendimento
+            Modalidades de Jogo
           </h2>
           <p className="font-body text-sm text-smoke max-w-md mx-auto leading-relaxed">
             Escolha o formato ideal para o seu momento e agende sua leitura.
@@ -234,7 +234,7 @@ export default function PricingSection() {
             <img src={CARDS_IMG} alt="Cartas de tarot sobre veludo" className="w-full h-40 object-cover object-center opacity-70" />
             <div className="absolute inset-0 bg-gradient-to-t from-void/80 to-transparent" />
             <p className="absolute bottom-3 left-0 right-0 text-center font-body text-[10px] uppercase tracking-[0.25em] text-gold-dim">
-              Pix · Cartão · Boleto
+              Pix · Cartão
             </p>
           </div>
         </motion.div>

@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Como é feito o pagamento?",
-    a: "O pagamento é 100% seguro via Mercado Pago. Você pode pagar com Pix (aprovação imediata), cartão de crédito, débito ou boleto. Após a confirmação, você recebe as instruções para enviar sua pergunta.",
+    a: "O pagamento é 100% seguro via Mercado Pago. Você pode pagar com Pix (aprovação imediata), cartão de crédito ou débito. Após a confirmação, você recebe as instruções para enviar sua pergunta.",
   },
   {
     q: "Posso pedir reembolso?",
