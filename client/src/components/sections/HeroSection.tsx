@@ -17,7 +17,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-void/10 to-void/40" />
       </div>
 
-      <div className="container relative z-10 py-20 flex flex-col items-center lg:items-start text-center lg:text-left">
+      <div className="container relative z-10 py-20 flex flex-col items-center text-center">
         <div className="max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="#rituais" className="btn-gold">
                 Escolher meu Jogo
               </a>
@@ -61,7 +61,7 @@ export default function HeroSection() {
             </div>
 
             {/* Trust */}
-            <p className="mt-6 font-body text-xs text-smoke/60 flex items-center gap-2">
+            <p className="mt-6 font-body text-xs text-smoke/60 flex items-center justify-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-gold/60" />
               Pagamento seguro · Resposta em até 24h · Mais de 500 leituras realizadas
             </p>
