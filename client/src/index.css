@@ -97,7 +97,7 @@
   /* Tablets (768px or less) */
   @media (max-width: 768px) {
     body::before {
-      background-size: contain;
+      background-size: cover;
       background-position: center center;
     }
   }
@@ -105,8 +105,8 @@
   /* Mobile Phones (600px or less) */
   @media (max-width: 600px) {
     body::before {
-      background-size: contain;
-      background-position: top center;
+      background-size: cover;
+      background-position: center top;
     }
   }
 
