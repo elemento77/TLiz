@@ -76,13 +76,21 @@
     @apply text-foreground;
     background-color: var(--background);
     background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.85)), url("/fundopeixinho3.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    /* Fixes iOS mobile zoom bug */
 
     font-family: var(--font-body);
     font-size: 15px;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      background-attachment: fixed;
+      background-position: center center;
+    }
   }
 
   h1,
