@@ -5,6 +5,8 @@ import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Success from "./pages/Success";
+import Feedback from "./pages/Feedback";
 
 
 // Calculate base path for wouter (remove trailing slash)
@@ -15,6 +17,8 @@ function Router() {
     <WouterRouter base={base}>
       <Switch>
         <Route path={"/"} component={Home} />
+        <Route path={"/sucesso"} component={Success} />
+        <Route path={"/feedback"} component={Feedback} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

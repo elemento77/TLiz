@@ -1,0 +1,30 @@
+6a60152 HEAD@{0}: commit: fix(ci): restore github pages deploy action removed during rollback
+8352a04 HEAD@{1}: commit: fix(deploy): restore ui wording, hero alignment, and ensure images are tracked for gh-pages
+fff3bab HEAD@{2}: commit: chore: add base path to vite config for GitHub Pages deployment
+506cd58 HEAD@{3}: rebase (finish): returning to refs/heads/main
+506cd58 HEAD@{4}: rebase (continue): style(bg): use user-provided media queries for exact containment and parallax on mobile
+9a6accb HEAD@{5}: pull --rebase origin main (start): checkout 9a6accb696f2f6d1e767f72dc836b8b695b42ce2
+9cde7aa HEAD@{6}: commit: style(bg): use user-provided media queries for exact containment and parallax on mobile
+8344c7e HEAD@{7}: commit: style(bg): revert mobile base size from contain to cover to eliminate empty background gaps
+73f40f1 HEAD@{8}: commit: style(bg): use body bit pseudo-element to guarantee fixed parallax without ios zoom bug
+128474e HEAD@{9}: commit: style(bg): refine mobile and tablet background size with media queries
+a5ec5d1 HEAD@{10}: commit: style(bg): use cover size and disable fixed parallax on mobile for ios performance
+dcc6767 HEAD@{11}: commit: style(bg): update base background to use the third peixinho asset
+288be5c HEAD@{12}: commit: chore(assets): add new orange background image to public folder
+778596f HEAD@{13}: commit: style(bg): update base background to use the new orange asset
+97b00c0 HEAD@{14}: commit: style(bg): optimize background image visibility completely with contain
+985638b HEAD@{15}: commit: feat(content): center hero section, rename rituais to consultas and jogos e precos
+04cde8a HEAD@{16}: commit: feat(content): fix desktop hero layout, change payment and wording to jogo
+3f9bcbc HEAD@{17}: commit: fix(ui): adjust background brightness and hero layout for desktop
+5e11ad1 HEAD@{18}: pull origin main --rebase (finish): returning to refs/heads/main
+5e11ad1 HEAD@{19}: pull origin main --rebase (pick): feat: atualiza conteudo do site e background baseado no pdf
+1568411 HEAD@{20}: pull origin main --rebase (start): checkout 1568411c33af7bfa27851e2c22dcabbbce67a250
+8c7f091 HEAD@{21}: commit: feat: atualiza conteudo do site e background baseado no pdf
+cff077e HEAD@{22}: commit: Trigger action after changing Pages source
+ceb0f04 HEAD@{23}: commit: Fix deploy: handle SPA routing and avoid building server
+100afc7 HEAD@{24}: commit: Fix wouter base path for GitHub Pages
+475eb7c HEAD@{25}: commit: Update pnpm version for GitHub Actions
+8bfe8a1 HEAD@{26}: commit: Fix base path for GitHub Pages
+fc9d186 HEAD@{27}: commit: Trigger deploy
+dd6f868 HEAD@{28}: Branch: renamed refs/heads/master to refs/heads/main
+dd6f868 HEAD@{30}: commit (initial): Initial commit

@@ -1,0 +1,30 @@
+6a60152 fix(ci): restore github pages deploy action removed during rollback
+8352a04 fix(deploy): restore ui wording, hero alignment, and ensure images are tracked for gh-pages
+fff3bab chore: add base path to vite config for GitHub Pages deployment
+506cd58 style(bg): use user-provided media queries for exact containment and parallax on mobile
+9a6accb Rollback to 14a18318
+fcc6b5d Remove large image files — uploaded to S3
+7f8403d Merge GitHub changes with local Tarot da Liz updates
+8344c7e style(bg): revert mobile base size from contain to cover to eliminate empty background gaps
+73f40f1 style(bg): use body bit pseudo-element to guarantee fixed parallax without ios zoom bug
+128474e style(bg): refine mobile and tablet background size with media queries
+a5ec5d1 style(bg): use cover size and disable fixed parallax on mobile for ios performance
+dcc6767 style(bg): update base background to use the third peixinho asset
+288be5c chore(assets): add new orange background image to public folder
+778596f style(bg): update base background to use the new orange asset
+97b00c0 style(bg): optimize background image visibility completely with contain
+985638b feat(content): center hero section, rename rituais to consultas and jogos e precos
+04cde8a feat(content): fix desktop hero layout, change payment and wording to jogo
+3f9bcbc fix(ui): adjust background brightness and hero layout for desktop
+5e11ad1 feat: atualiza conteudo do site e background baseado no pdf
+1568411 Create static.yml
+cff077e Trigger action after changing Pages source
+ceb0f04 Fix deploy: handle SPA routing and avoid building server
+100afc7 Fix wouter base path for GitHub Pages
+475eb7c Update pnpm version for GitHub Actions
+8bfe8a1 Fix base path for GitHub Pages
+fc9d186 Trigger deploy
+dd6f868 Initial commit
+14a1831 Checkpoint: Nome da marca atualizado de "Tarot da Luna" para "Tarot da Liz" em toda a aplicação — navbar, footer, título da página e comentários.
+287f5bb Checkpoint: Site reformulado com temática Tarot/Esotérico. Design dark com Cormorant Garamond + DM Sans, paleta void/gold/parchment. Três rituais de leitura (Rápida R$47, Completo R$127, Ao Vivo R$247) com itens inclusos/não inclusos. Layout compacto e atmosférico.
+44902b1 Checkpoint: Site de conversão de vendas completo com Hero, Prova Social, Tabela de Preços (3 planos), FAQ, CTA e Footer. Design Neo-Brutalista com Space Grotesk + DM Sans. Botões Mercado Pago configuráveis.
