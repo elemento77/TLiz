@@ -27,7 +27,7 @@ export default function FooterSection() {
             <p className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke/40 mb-3">Navegação</p>
             <ul className="space-y-2">
               {[
-                { label: "Rituais & Preços", href: "#rituais" },
+                { label: "Jogos e preços", href: "#rituais" },
                 { label: "Perguntas Frequentes", href: "#faq" },
                 { label: "Depoimentos", href: "#depoimentos" },
               ].map((l) => (

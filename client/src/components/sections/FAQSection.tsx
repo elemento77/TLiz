@@ -9,8 +9,8 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    q: "Como funciona a leitura por escrito?",
-    a: "Após o pagamento, você me envia sua pergunta ou tema por e-mail ou WhatsApp. Realizo a tiragem das cartas e envio a interpretação completa em texto — detalhada, clara e sem termos confusos — dentro do prazo do ritual escolhido.",
+    q: "Como funciona a leitura por escrito ou áudio?",
+    a: "Após o pagamento, você me envia sua pergunta ou tema por WhatsApp. Realizo a tiragem e envio a interpretação completa — detalhada, clara e sem termos confusos — dentro do prazo da modalidade escolhida.",
   },
   {
     q: "Preciso acreditar em tarot para funcionar?",
@@ -18,15 +18,15 @@ const faqs = [
   },
   {
     q: "Como é feito o pagamento?",
-    a: "O pagamento é 100% seguro via Mercado Pago. Você pode pagar com Pix (aprovação imediata), cartão de crédito, débito ou boleto. Após a confirmação, você recebe as instruções para enviar sua pergunta.",
+    a: "O pagamento é 100% seguro via Mercado Pago. Você pode pagar com Pix (aprovação imediata), cartão de crédito ou débito. Após a confirmação, você recebe as instruções para enviar sua pergunta.",
   },
   {
     q: "Posso pedir reembolso?",
     a: "Sim. Se a leitura ainda não foi realizada, o reembolso é integral. Após a entrega, não há reembolso — mas me comprometo a responder dúvidas sobre a leitura sem custo adicional.",
   },
   {
-    q: "Qual a diferença entre os rituais?",
-    a: "A Leitura Rápida é para uma dúvida pontual com 3 cartas. O Ritual Completo é uma tiragem aprofundada com áudio. A Sessão ao Vivo é uma videochamada de 60 minutos onde você interage em tempo real. Cada um tem seus itens detalhados na tabela acima.",
+    q: "Qual a diferença entre as modalidades?",
+    a: "A 'Pergunta Única' responde diretamente a uma dúvida urgente. O 'Combo 3 Perguntas' aprofunda um cenário com até 3 desdobramentos. A 'Sessão Estratégica' e o 'Jogo das Sombras' são acompanhamentos ao vivo de imersão profunda, e a 'Mandala Anual' é um mapa das energias dos próximos 12 meses. Cada modalidade tem seus detalhes listados na tabela acima.",
   },
   {
     q: "Posso fazer uma leitura sobre outra pessoa?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Quanto tempo leva para receber a leitura?",
-    a: "Leitura Rápida: até 24h. Ritual Completo: até 48h. Sessão ao Vivo: agendada em até 3 dias úteis. Os prazos contam a partir da confirmação do pagamento e do recebimento da sua pergunta.",
+    a: "O prazo varia conforme a modalidade escolhida e é informado após a confirmação do pagamento. Sessões ao vivo são agendadas previamente conforme disponibilidade de agenda.",
   },
 ];
 

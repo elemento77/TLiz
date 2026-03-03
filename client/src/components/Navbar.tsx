@@ -10,7 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { label: "Rituais", href: "#rituais" },
+    { label: "Consultas", href: "#rituais" },
     { label: "Dúvidas", href: "#faq" },
     { label: "Contato", href: "#contato" },
   ];
