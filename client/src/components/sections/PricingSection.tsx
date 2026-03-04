@@ -122,11 +122,14 @@ function RitualCard({ r, i }: { r: Ritual; i: number }) {
   const handleBuy = () => {
     if (r.mpLink === "#") {
       toast("Em breve disponível", {
-        description: "Configure o link do Mercado Pago em PricingSection.tsx.",
+        description: "Estamos configurando este serviço. Tente outro ou entre em contato pelo WhatsApp.",
         icon: "✦",
       });
     } else {
+      // Open MP payment in a new tab
       window.open(r.mpLink, "_blank");
+      // Redirect current tab to success page so WhatsApp button is ready
+      window.location.href = import.meta.env.BASE_URL + "sucesso";
     }
   };
 
