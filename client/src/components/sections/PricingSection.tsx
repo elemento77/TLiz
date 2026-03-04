@@ -43,7 +43,7 @@ const rituals: Ritual[] = [
     ],
     featured: false,
     cta: "Agendar Pergunta",
-    mpLink: "#",
+    mpLink: "https://mpago.la/2dAKkry",
   },
   {
     symbol: "✦",

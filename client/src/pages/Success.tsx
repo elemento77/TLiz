@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 export default function Success() {
     const [, setLocation] = useLocation();
 
-    // WhatsApp number of Liz (placeholder to be updated later)
-    const WHATSAPP_NUMBER = "5511999999999";
-    const WHATSAPP_MESSAGE = encodeURIComponent("Oi Liz! Acabei de realizar o pagamento da minha consulta no site. Aqui está o meu comprovante!");
+    // WhatsApp number of Liz
+    const WHATSAPP_NUMBER = "5511968673124";
+    const WHATSAPP_MESSAGE = encodeURIComponent("Oi Liz! 🔮 Acabei de realizar o pagamento da minha consulta pelo site. Segue meu comprovante! Quando podemos agendar?");
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
     return (
