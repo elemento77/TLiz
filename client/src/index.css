@@ -296,6 +296,89 @@
     box-shadow: 0 0 30px oklch(0.78 0.12 80 / 0.12), 0 0 60px oklch(0.52 0.18 300 / 0.06);
   }
 
+  /* Premium card — Jogo das Sombras hero product */
+  .esoteric-card-premium {
+    position: relative;
+    background: oklch(0.08 0.020 290 / 0.88);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid oklch(0.52 0.18 300 / 0.35);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow:
+      0 0 40px oklch(0.52 0.18 300 / 0.18),
+      0 0 80px oklch(0.52 0.18 300 / 0.08),
+      0 0 20px oklch(0.78 0.12 80 / 0.08),
+      inset 0 1px 0 oklch(0.78 0.12 80 / 0.08);
+    overflow: hidden;
+  }
+
+  .esoteric-card-premium::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      oklch(0.52 0.18 300 / 0.50),
+      oklch(0.78 0.12 80 / 0.30),
+      oklch(0.52 0.18 300 / 0.50),
+      oklch(0.78 0.12 80 / 0.30)
+    );
+    background-size: 300% 300%;
+    animation: premium-border-shift 6s ease-in-out infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .esoteric-card-premium::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      oklch(0.78 0.12 80 / 0.04) 45%,
+      oklch(0.78 0.12 80 / 0.08) 50%,
+      oklch(0.78 0.12 80 / 0.04) 55%,
+      transparent 70%
+    );
+    animation: premium-shimmer 4s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .esoteric-card-premium:hover {
+    border-color: oklch(0.52 0.18 300 / 0.50);
+    box-shadow:
+      0 0 50px oklch(0.52 0.18 300 / 0.25),
+      0 0 100px oklch(0.52 0.18 300 / 0.12),
+      0 0 30px oklch(0.78 0.12 80 / 0.10),
+      inset 0 1px 0 oklch(0.78 0.12 80 / 0.12);
+  }
+
+  @keyframes premium-border-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes premium-shimmer {
+    0% { left: -100%; }
+    60%, 100% { left: 150%; }
+  }
+
+  @keyframes premium-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
   /* Ornamental divider */
   .ornament {
     display: flex;
