@@ -135,7 +135,7 @@ const standardRituals: Ritual[] = [
 const mandalaRituals = [
   {
     mandalaName: "annual" as const,
-    imageUrl: "/mandala-anual.png",
+    imageUrl: `${import.meta.env.BASE_URL}mandala-anual.png`,
     ritualName: "Mandala Anual",
     tagline: "Mapa dos próximos 12 meses",
     price: "R$ 247",
@@ -153,7 +153,7 @@ const mandalaRituals = [
   },
   {
     mandalaName: "semestral" as const,
-    imageUrl: "/mandala-semestral.png",
+    imageUrl: `${import.meta.env.BASE_URL}mandala-semestral.png`,
     ritualName: "Mandala Semestral",
     tagline: "Mapa dos próximos 6 meses",
     price: "R$ 147",
