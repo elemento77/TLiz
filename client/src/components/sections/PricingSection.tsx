@@ -2,11 +2,13 @@
  * Pricing Section — Esoteric Tarot
  * Reading rituals with clear inclusions/exclusions.
  * Dark cards, gold accents, Mercado Pago buttons.
+ * Mandala products feature immersive artwork with click-to-reveal details.
  */
 
 import { motion } from "framer-motion";
 import { Check, X, Shield } from "lucide-react";
 import { toast } from "sonner";
+import MandalaCard from "./MandalaCard";
 
 const TAROT_CARDS_IMAGE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663185035098/L3Jyr6D9Q6XkPqnq2Mow6v/tarot-cards-TMzbShpNrrHMWsgfdMBcHN.webp";
@@ -33,7 +35,7 @@ interface Ritual {
   mercadoPagoUrl: string;
 }
 
-const rituals: Ritual[] = [
+const standardRituals: Ritual[] = [
   {
     symbol: "✧",
     name: "Pergunta Única",
@@ -110,42 +112,6 @@ const rituals: Ritual[] = [
     mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
   },
   {
-    symbol: "☉",
-    name: "Mandala Anual",
-    tagline: "Mapa dos próximos 12 meses",
-    price: "R$ 247",
-    deliveryNote: "PDF + Notas explicativas",
-    description:
-      "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
-    features: [
-      { text: "Previsões mês a mês", isIncluded: true },
-      { text: "Identificação de oportunidades", isIncluded: true },
-      { text: "Reconhecer pontos de atenção", isIncluded: true },
-      { text: "Bônus: Arcano Regente Pessoal", isIncluded: true },
-    ],
-    isFeatured: false,
-    ctaLabel: "Fazer Mandala",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
-  },
-  {
-    symbol: "🌙",
-    name: "Mandala Semestral",
-    tagline: "Mapa dos próximos 6 meses",
-    price: "R$ 147",
-    deliveryNote: "entrega em PDF",
-    description:
-      "A Mandala Semestral é uma leitura estratégica que revela as energias que irão influenciar seu ciclo nos próximos seis meses. Cada período é analisado através dos arcanos do Tarot, trazendo clareza sobre momentos de expansão, desafios e oportunidades de crescimento.",
-    features: [
-      { text: "Energia central do semestre", isIncluded: true },
-      { text: "Interpretação dos arcanos de cada período", isIncluded: true },
-      { text: "Orientações simbólicas para o ciclo", isIncluded: true },
-      { text: "Sessão ao vivo", isIncluded: false },
-    ],
-    isFeatured: false,
-    ctaLabel: "Mapear Semestre",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
-  },
-  {
     symbol: "☾",
     name: "Jogo das Sombras",
     tagline: "Desperte sua Força Interior",
@@ -166,7 +132,46 @@ const rituals: Ritual[] = [
   },
 ];
 
-function openPaymentOrShowPendingToast(mercadoPagoUrl: string) {
+const mandalaRituals = [
+  {
+    mandalaName: "annual" as const,
+    imageUrl: "/mandala-anual.png",
+    ritualName: "Mandala Anual",
+    tagline: "Mapa dos próximos 12 meses",
+    price: "R$ 247",
+    deliveryNote: "PDF + Notas explicativas",
+    description:
+      "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
+    features: [
+      { text: "Previsões mês a mês", isIncluded: true },
+      { text: "Identificação de oportunidades", isIncluded: true },
+      { text: "Reconhecer pontos de atenção", isIncluded: true },
+      { text: "Bônus: Arcano Regente Pessoal", isIncluded: true },
+    ],
+    ctaLabel: "Fazer Mandala",
+    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+  },
+  {
+    mandalaName: "semestral" as const,
+    imageUrl: "/mandala-semestral.png",
+    ritualName: "Mandala Semestral",
+    tagline: "Mapa dos próximos 6 meses",
+    price: "R$ 147",
+    deliveryNote: "entrega em PDF",
+    description:
+      "A Mandala Semestral é uma leitura estratégica que revela as energias que irão influenciar seu ciclo nos próximos seis meses. Cada período é analisado através dos arcanos do Tarot, trazendo clareza sobre momentos de expansão, desafios e oportunidades de crescimento.",
+    features: [
+      { text: "Energia central do semestre", isIncluded: true },
+      { text: "Interpretação dos arcanos de cada período", isIncluded: true },
+      { text: "Orientações simbólicas para o ciclo", isIncluded: true },
+      { text: "Sessão ao vivo", isIncluded: false },
+    ],
+    ctaLabel: "Mapear Semestre",
+    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+  },
+];
+
+function handlePaymentClick(mercadoPagoUrl: string) {
   if (mercadoPagoUrl === MERCADO_PAGO_PENDING_URL) {
     toast("Em breve disponível", {
       description:
@@ -209,7 +214,13 @@ function FeatureItem({ feature }: { feature: Feature }) {
   );
 }
 
-function RitualCard({ ritual, index }: { ritual: Ritual; index: number }) {
+function StandardRitualCard({
+  ritual,
+  index,
+}: {
+  ritual: Ritual;
+  index: number;
+}) {
   const cardClass = ritual.isFeatured
     ? "esoteric-card-featured"
     : "esoteric-card";
@@ -266,7 +277,7 @@ function RitualCard({ ritual, index }: { ritual: Ritual; index: number }) {
 
       <div className="p-6 pt-0">
         <button
-          onClick={() => openPaymentOrShowPendingToast(ritual.mercadoPagoUrl)}
+          onClick={() => handlePaymentClick(ritual.mercadoPagoUrl)}
           className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 ${ctaClass}`}
         >
           {ritual.ctaLabel}
@@ -298,12 +309,39 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start justify-center">
-          {rituals.map((ritual, index) => (
-            <RitualCard key={ritual.name} ritual={ritual} index={index} />
+        {/* Standard rituals grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start justify-center mb-8">
+          {standardRituals.map((ritual, index) => (
+            <StandardRitualCard key={ritual.name} ritual={ritual} index={index} />
           ))}
         </div>
 
+        {/* Mandala rituals with immersive design */}
+        <div className="mt-16 mb-8">
+          <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-8 text-center">
+            ✦ Mandalas Estratégicas
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {mandalaRituals.map((mandala) => (
+              <MandalaCard
+                key={mandala.mandalaName}
+                mandalaName={mandala.mandalaName}
+                imageUrl={mandala.imageUrl}
+                ritualName={mandala.ritualName}
+                tagline={mandala.tagline}
+                price={mandala.price}
+                deliveryNote={mandala.deliveryNote}
+                description={mandala.description}
+                features={mandala.features}
+                ctaLabel={mandala.ctaLabel}
+                mercadoPagoUrl={mandala.mercadoPagoUrl}
+                onPaymentClick={handlePaymentClick}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Image accent */}
         <motion.div
           className="mt-14 flex justify-center"
           initial={{ opacity: 0 }}
