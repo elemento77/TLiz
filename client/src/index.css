@@ -88,10 +88,11 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    background-image: linear-gradient(to bottom, oklch(0.10 0.015 285 / 0.5), oklch(0.10 0.015 285 / 0.85)), url("https://d2xsxph8kpxj0f.cloudfront.net/310519663185035098/L3Jyr6D9Q6XkPqnq2Mow6v/fundopeixinho3_026e3b3f.png");
+    background-image: url("/TLiz/main-background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center center;
+    background-attachment: fixed;
   }
 
   /* Tablets (768px or less) */
@@ -99,6 +100,7 @@
     body::before {
       background-size: cover;
       background-position: center center;
+      background-attachment: scroll;
     }
   }
 
@@ -106,7 +108,8 @@
   @media (max-width: 600px) {
     body::before {
       background-size: cover;
-      background-position: center top;
+      background-position: center center;
+      background-attachment: scroll;
     }
   }
 
