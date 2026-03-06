@@ -1,12 +1,12 @@
 /**
  * MandalaCard — Immersive ritual card with click-to-reveal interaction
- * Displays mandala artwork initially (full, uncut), reveals product details on click.
- * Applies top-design principles: dramatic imagery, intentional motion, atmospheric depth.
+ * Displays mandala artwork initially, reveals product details on click.
+ * Glassmorphism styling for expanded view.
  */
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, Shield, ChevronUp } from "lucide-react";
+import { Check, X, Shield, ChevronDown, Eye } from "lucide-react";
 
 interface Feature {
   text: string;
@@ -31,17 +31,9 @@ function FeatureItem({ feature }: { feature: Feature }) {
   return (
     <div className="flex items-start gap-2.5">
       {feature.isIncluded ? (
-        <Check
-          size={13}
-          className="text-gold mt-0.5 shrink-0"
-          strokeWidth={2.5}
-        />
+        <Check size={13} className="text-gold mt-0.5 shrink-0" strokeWidth={2.5} />
       ) : (
-        <X
-          size={13}
-          className="text-smoke/30 mt-0.5 shrink-0"
-          strokeWidth={2}
-        />
+        <X size={13} className="text-smoke/30 mt-0.5 shrink-0" strokeWidth={2} />
       )}
       <span
         className={`font-body text-sm leading-snug ${
@@ -71,29 +63,25 @@ function CollapsedView({
       onClick={onExpand}
       className="relative cursor-pointer group h-full"
     >
-      <div className="relative w-full h-full overflow-hidden esoteric-card flex items-center justify-center bg-void">
+      <div className="relative w-full h-full overflow-hidden esoteric-card flex items-center justify-center bg-void/40">
         <img
           src={imageUrl}
           alt="Mandala"
           className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-transparent to-transparent" />
+        {/* Bottom gradient for hover text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
+        {/* Hover reveal prompt */}
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          className="absolute bottom-6 left-0 right-0 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
-          <div className="text-center">
-            <p className="font-body text-xs uppercase tracking-[0.2em] text-gold-dim mb-2">
+          <div className="glass-panel px-4 py-2 flex items-center gap-2">
+            <Eye size={14} className="text-gold" />
+            <p className="font-body text-xs uppercase tracking-[0.15em] text-gold">
               Clique para descobrir
             </p>
-            <ChevronUp
-              size={24}
-              className="text-gold mx-auto animate-bounce"
-            />
           </div>
         </motion.div>
       </div>
@@ -131,25 +119,27 @@ function ExpandedView({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
-      className="esoteric-card flex flex-col h-full"
+      className="esoteric-card-featured flex flex-col h-full relative"
     >
       <button
         onClick={onCollapse}
-        className="absolute top-4 right-4 z-10 p-2 rounded hover:bg-gold/10 transition-colors"
+        className="absolute top-4 right-4 z-10 p-2 rounded-md hover:bg-gold/10 transition-colors glass-panel"
         aria-label="Fechar detalhes"
       >
-        <ChevronUp size={20} className="text-gold rotate-180" />
+        <ChevronDown size={18} className="text-gold" />
       </button>
 
-      <div className="p-6 pb-5 border-b border-gold-dim/40">
+      <div className="p-6 pb-5 border-b border-gold/15">
         <div className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke mb-1">
           {tagline}
         </div>
-        <h3 className="font-display text-xl text-parchment mb-4">
+        <h3 className="font-display text-xl text-parchment mb-4 text-shadow-sm">
           {ritualName}
         </h3>
         <div className="flex items-baseline gap-1.5 mb-2">
-          <span className="font-display text-3xl text-gold">{price}</span>
+          <span className="font-display text-3xl text-gold text-shadow-sm">
+            {price}
+          </span>
         </div>
         <div className="font-body text-[10px] uppercase tracking-widest text-smoke/50">
           {deliveryNote}
@@ -173,7 +163,7 @@ function ExpandedView({
       <div className="p-6 pt-0">
         <button
           onClick={() => onPaymentClick(mercadoPagoUrl)}
-          className="w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 bg-gold text-void hover:bg-gold/90 glow-gold-sm"
+          className="w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 bg-gold text-void hover:bg-gold/90 glow-gold-sm rounded-md"
         >
           {ctaLabel}
         </button>
@@ -189,7 +179,6 @@ function ExpandedView({
 }
 
 export default function MandalaCard({
-  mandalaName,
   imageUrl,
   ritualName,
   tagline,
@@ -203,10 +192,6 @@ export default function MandalaCard({
 }: MandalaCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handlePaymentClick = () => {
-    onPaymentClick(mercadoPagoUrl);
-  };
-
   return (
     <motion.div
       className="relative h-full"
@@ -215,7 +200,10 @@ export default function MandalaCard({
     >
       <AnimatePresence mode="wait">
         {!isExpanded ? (
-          <CollapsedView imageUrl={imageUrl} onExpand={() => setIsExpanded(true)} />
+          <CollapsedView
+            imageUrl={imageUrl}
+            onExpand={() => setIsExpanded(true)}
+          />
         ) : (
           <ExpandedView
             ritualName={ritualName}
@@ -226,7 +214,7 @@ export default function MandalaCard({
             features={features}
             ctaLabel={ctaLabel}
             mercadoPagoUrl={mercadoPagoUrl}
-            onPaymentClick={handlePaymentClick}
+            onPaymentClick={() => onPaymentClick(mercadoPagoUrl)}
             onCollapse={() => setIsExpanded(false)}
           />
         )}

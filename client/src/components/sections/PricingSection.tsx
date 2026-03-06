@@ -1,7 +1,6 @@
 /**
  * Pricing Section — Esoteric Tarot
- * Reading rituals with clear inclusions/exclusions.
- * Dark cards, gold accents, Mercado Pago buttons.
+ * Glassmorphism ritual cards with gold accents.
  * Mandala products feature immersive artwork with click-to-reveal details.
  */
 
@@ -35,7 +34,7 @@ interface Ritual {
   mercadoPagoUrl: string;
 }
 
-const standardRituals: Ritual[] = [
+const STANDARD_RITUALS: Ritual[] = [
   {
     symbol: "✧",
     name: "Pergunta Única",
@@ -132,7 +131,7 @@ const standardRituals: Ritual[] = [
   },
 ];
 
-const mandalaRituals = [
+const MANDALA_RITUALS = [
   {
     mandalaName: "annual" as const,
     imageUrl: `${import.meta.env.BASE_URL}mandala-anual.png`,
@@ -189,23 +188,13 @@ function FeatureItem({ feature }: { feature: Feature }) {
   return (
     <div className="flex items-start gap-2.5">
       {feature.isIncluded ? (
-        <Check
-          size={13}
-          className="text-gold mt-0.5 shrink-0"
-          strokeWidth={2.5}
-        />
+        <Check size={13} className="text-gold mt-0.5 shrink-0" strokeWidth={2.5} />
       ) : (
-        <X
-          size={13}
-          className="text-smoke/30 mt-0.5 shrink-0"
-          strokeWidth={2}
-        />
+        <X size={13} className="text-smoke/30 mt-0.5 shrink-0" strokeWidth={2} />
       )}
       <span
         className={`font-body text-sm leading-snug ${
-          feature.isIncluded
-            ? "text-smoke"
-            : "text-smoke/30 line-through"
+          feature.isIncluded ? "text-smoke" : "text-smoke/30 line-through"
         }`}
       >
         {feature.text}
@@ -221,12 +210,8 @@ function StandardRitualCard({
   ritual: Ritual;
   index: number;
 }) {
-  const cardClass = ritual.isFeatured
-    ? "esoteric-card-featured"
-    : "esoteric-card";
-  const headerBorderClass = ritual.isFeatured
-    ? "border-gold-dim/40"
-    : "border-surface";
+  const cardClass = ritual.isFeatured ? "esoteric-card-featured" : "esoteric-card";
+  const headerBorderClass = ritual.isFeatured ? "border-gold/20" : "border-gold/8";
   const ctaClass = ritual.isFeatured
     ? "bg-gold text-void hover:bg-gold/90 glow-gold-sm"
     : "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8";
@@ -237,10 +222,10 @@ function StandardRitualCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: index * 0.12 }}
+      transition={{ duration: 0.45, delay: index * 0.1 }}
     >
       {ritual.badge && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-void font-body font-semibold text-[10px] uppercase tracking-widest px-4 py-1 whitespace-nowrap">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-void font-body font-semibold text-[10px] uppercase tracking-widest px-4 py-1 whitespace-nowrap rounded-full">
           {ritual.badge}
         </div>
       )}
@@ -250,11 +235,13 @@ function StandardRitualCard({
         <div className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke mb-1">
           {ritual.tagline}
         </div>
-        <h3 className="font-display text-xl text-parchment mb-4">
+        <h3 className="font-display text-xl text-parchment mb-4 text-shadow-sm">
           {ritual.name}
         </h3>
         <div className="flex items-baseline gap-1.5">
-          <span className="font-display text-3xl text-gold">{ritual.price}</span>
+          <span className="font-display text-3xl text-gold text-shadow-sm">
+            {ritual.price}
+          </span>
         </div>
         <div className="font-body text-[10px] uppercase tracking-widest text-smoke/50 mt-0.5">
           {ritual.deliveryNote}
@@ -278,7 +265,7 @@ function StandardRitualCard({
       <div className="p-6 pt-0">
         <button
           onClick={() => handlePaymentClick(ritual.mercadoPagoUrl)}
-          className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 ${ctaClass}`}
+          className={`w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 rounded-md ${ctaClass}`}
         >
           {ritual.ctaLabel}
         </button>
@@ -295,34 +282,46 @@ function StandardRitualCard({
 
 export default function PricingSection() {
   return (
-    <section id="rituais" className="py-16 border-t border-surface">
+    <section id="rituais" className="py-16">
       <div className="container">
-        <div className="text-center mb-12">
+        {/* Section header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-3">
             ✦ Explorar
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-parchment mb-3">
+          <h2 className="font-display text-3xl md:text-4xl text-parchment mb-3 text-shadow-md">
             Modalidades de Jogo
           </h2>
           <p className="font-body text-sm text-smoke max-w-md mx-auto leading-relaxed">
             Escolha o formato ideal para o seu momento e agende sua leitura.
           </p>
-        </div>
+        </motion.div>
 
         {/* Standard rituals grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start justify-center mb-8">
-          {standardRituals.map((ritual, index) => (
+          {STANDARD_RITUALS.map((ritual, index) => (
             <StandardRitualCard key={ritual.name} ritual={ritual} index={index} />
           ))}
         </div>
 
         {/* Mandala rituals with immersive design */}
         <div className="mt-16 mb-8">
-          <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-8 text-center">
+          <motion.p
+            className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-8 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
             ✦ Mandalas Estratégicas
-          </p>
+          </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {mandalaRituals.map((mandala) => (
+            {MANDALA_RITUALS.map((mandala) => (
               <MandalaCard
                 key={mandala.mandalaName}
                 mandalaName={mandala.mandalaName}
@@ -349,11 +348,11 @@ export default function PricingSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          <div className="relative max-w-xs w-full overflow-hidden border border-surface">
+          <div className="relative max-w-xs w-full overflow-hidden esoteric-card">
             <img
               src={TAROT_CARDS_IMAGE_URL}
               alt="Cartas de tarot sobre veludo"
-              className="w-full h-40 object-cover object-center opacity-70"
+              className="w-full h-40 object-cover object-center opacity-70 rounded-t-md"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-void/80 to-transparent" />
             <p className="absolute bottom-3 left-0 right-0 text-center font-body text-[10px] uppercase tracking-[0.25em] text-gold-dim">
