@@ -231,6 +231,7 @@ function StandardRitualCard({
       className={`relative flex flex-col h-full ${cardClass}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -4 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.1 }}
     >
