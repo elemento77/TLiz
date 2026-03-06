@@ -224,13 +224,11 @@ function StandardRitualCard({
 }) {
   const cardClass = ritual.isFeatured ? "esoteric-card-featured" : "esoteric-card";
   const headerBorderClass = ritual.isFeatured ? "border-gold/20" : "border-gold/8";
-  const ctaClass = ritual.isFeatured
-    ? "bg-gold text-void hover:bg-gold/90 glow-gold-sm"
-    : "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8";
+  const ctaClass = "bg-transparent border border-gold-dim text-gold hover:border-gold hover:bg-gold/8";
 
   return (
     <motion.div
-      className={`relative flex flex-col ${cardClass}`}
+      className={`relative flex flex-col h-full ${cardClass}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -479,7 +477,7 @@ export default function PricingSection() {
         </motion.div>
 
         {/* Standard rituals grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 max-w-4xl mx-auto items-start justify-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 max-w-4xl mx-auto items-stretch justify-center mb-16">
           {STANDARD_RITUALS.map((ritual, index) => (
             <StandardRitualCard key={ritual.name} ritual={ritual} index={index} />
           ))}
