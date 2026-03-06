@@ -99,7 +99,7 @@
   @media (max-width: 768px) {
     body::before {
       background-size: cover;
-      background-position: center center;
+      background-position: 65% center; /* Focus on the character and fish */
       background-attachment: scroll;
     }
   }
@@ -108,7 +108,7 @@
   @media (max-width: 600px) {
     body::before {
       background-size: cover;
-      background-position: center center;
+      background-position: 65% center; /* Focus on the character and fish */
       background-attachment: scroll;
     }
   }
