@@ -314,9 +314,9 @@ function PremiumRitualCard({ ritual }: { ritual: Ritual }) {
       />
 
       <div className="esoteric-card-premium relative z-10">
-        {/* Premium badge */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-          <div
+        {/* Premium badge — positioned inside top edge */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 z-20 pt-3">
+          <motion.div
             className="flex items-center gap-2 px-5 py-1.5 rounded-full font-body font-semibold text-[10px] uppercase tracking-[0.15em] whitespace-nowrap"
             style={{
               background:
@@ -325,10 +325,14 @@ function PremiumRitualCard({ ritual }: { ritual: Ritual }) {
               boxShadow:
                 "0 4px 20px oklch(0.52 0.18 300 / 0.40), 0 0 10px oklch(0.52 0.18 300 / 0.20)",
             }}
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Crown size={12} />
             {ritual.badge}
-          </div>
+          </motion.div>
         </div>
 
         {/* Content — horizontal on desktop, vertical on mobile */}
