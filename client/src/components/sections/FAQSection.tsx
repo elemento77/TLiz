@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Qual a diferença entre as modalidades?",
-    a: "A 'Pergunta Única' responde diretamente a uma dúvida urgente. O 'Combo 3 Perguntas' aprofunda um cenário com até 3 desdobramentos. A 'Sessão Estratégica' e o 'Jogo das Sombras' são acompanhamentos ao vivo de imersão profunda, e a 'Mandala Anual' é um mapa das energias dos próximos 12 meses. Cada modalidade tem seus detalhes listados na tabela acima.",
+    a: "A 'Pergunta Única' responde diretamente a uma dúvida urgente. O 'Combo 3 Perguntas' aprofunda um cenário com até 3 desdobramentos. A 'Sessão Estratégica' e o 'Jogo das Sombras' são acompanhamentos ao vivo de imersão profunda. O 'Arcano Regente Pessoal' revela o arquétipo que guia sua missão de vida a partir da sua data de nascimento. A 'Mandala Semestral' mapeia as energias dos próximos 6 meses, e a 'Mandala Anual' faz o mesmo para os 12 meses. Cada modalidade tem seus detalhes listados na tabela acima.",
   },
   {
     q: "Posso fazer uma leitura sobre outra pessoa?",
