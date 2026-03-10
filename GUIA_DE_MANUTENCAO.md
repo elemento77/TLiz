@@ -1,146 +1,98 @@
-# Guia de Manutenção do Site Tarot da Liz
+# Guia Simples para Manter o Site Tarot da Liz
 
-Este guia foi criado para que você, Liz, possa gerenciar e atualizar seu site de forma autônoma, sem a necessidade de um desenvolvedor para cada pequena alteração. Ele cobre os aspectos mais comuns de manutenção, como iniciar o site, alterar textos e preços, e atualizar imagens.
+Olá, Liz!
 
-## 1. Estrutura do Projeto
+Este guia foi feito para te ajudar a cuidar do seu site de forma fácil, mesmo que você não entenda de programação. Aqui, você vai aprender a mudar textos, preços e imagens, e entender como o site funciona por trás das cortinas.
 
-O site é construído com tecnologias modernas (React, Vite, TypeScript, TailwindCSS) para oferecer uma experiência rápida e responsiva. A estrutura principal que você precisará conhecer é:
+## 1. Onde Estão as Coisas no Seu Site?
 
-*   `client/src/pages/`: Contém as páginas principais do site (Home, Feedback, etc.).
-*   `client/src/components/sections/`: Contém as seções que compõem as páginas (Hero, Pricing, FAQ, etc.).
-*   `client/src/components/`: Contém componentes menores e reutilizáveis (Navbar, MandalaCard, etc.).
-*   `client/src/index.css`: Contém os estilos globais e as classes de utilidade do TailwindCSS.
-*   `client/public/`: Onde as imagens e outros arquivos estáticos são armazenados.
-*   `shared/const.ts`: Contém constantes e dados compartilhados, como a lista de rituais.
+Pense no seu site como uma pasta cheia de documentos e fotos no seu computador. Cada tipo de informação está guardado em um lugar específico:
 
-## 2. Como Rodar o Site Localmente (para Testes)
+*   **`client/src/pages/`**: Aqui estão os "documentos principais" do seu site, como a Página Inicial, a página de Contato, etc.
+*   **`client/src/components/sections/`**: São as "partes" que montam cada página, como a seção de "Rituais" ou a seção de "Perguntas Frequentes".
+*   **`client/src/components/`**: São "peças menores" que se repetem no site, como o menu de navegação ou os cards das mandalas.
+*   **`client/public/`**: Esta é a sua "galeria de fotos". Todas as imagens que aparecem no site estão aqui.
+*   **`shared/const.ts`**: Este é o "caderno de anotações" principal, onde estão guardados os textos e preços da maioria dos seus rituais.
 
-Para ver as alterações em tempo real no seu computador antes de publicá-las, você pode rodar o site localmente. Você precisará ter o `Node.js` e o `pnpm` instalados.
+## 2. Como Mudar Textos e Preços dos Rituais
 
-1.  **Abra o Terminal:** No seu computador, navegue até a pasta `TLiz` onde o site está salvo.
-2.  **Instale as Dependências (apenas na primeira vez):**
-    ```bash
-    pnpm install
-    ```
-3.  **Inicie o Servidor de Desenvolvimento:**
-    ```bash
-    pnpm run dev
-    ```
-    Após executar este comando, o terminal mostrará um endereço (geralmente `http://localhost:3000/TLiz/` ou similar). Copie e cole este endereço no seu navegador para ver o site rodando localmente.
+A maioria dos textos e preços dos seus rituais está em um arquivo especial. Você vai editá-lo como se fosse um documento de texto.
 
-    *Para parar o servidor, pressione `Ctrl + C` no terminal.*
+### Para Rituais Comuns (Pergunta Única, Combo 3 Perguntas, Arcano Regente Pessoal, Mandala Semestral):
 
-## 3. Como Alterar Textos e Preços dos Rituais
+1.  **Encontre o arquivo:** Vá até a pasta `TLiz` no seu computador, depois entre em `shared`, e abra o arquivo `const.ts` com o **Bloco de Notas** (ou qualquer editor de texto simples).
+2.  **Procure o ritual:** Dentro do arquivo, você verá uma lista. Cada item da lista é um ritual. Procure pelo nome do ritual que você quer mudar, por exemplo, `name: "Pergunta Única"`.
+3.  **Faça suas mudanças:**
+    *   **`name`**: O nome do ritual.
+    *   **`tagline`**: Uma frase curta que descreve o ritual.
+    *   **`symbol`**: O emoji ou símbolo que aparece no card (ex: `"✨"`).
+    *   **`price`**: O preço do ritual (ex: `"R$ 60"`).
+    *   **`deliveryNote`**: Como o ritual é entregue (ex: `"Áudio ou texto"`).
+    *   **`description`**: A descrição completa do ritual.
+    *   **`features`**: Uma lista de itens incluídos. Você pode mudar o `text` de cada item.
+    *   **`mercadoPagoUrl`**: Este é o **link de compra** do Mercado Pago. Se estiver `"#"`, significa que o produto ainda não está disponível para compra e aparecerá a mensagem "Em breve disponível". Para ativar a compra, cole o link do Mercado Pago aqui, entre as aspas.
+4.  **Salve o arquivo:** Depois de mudar, salve o arquivo (`Ctrl + S` ou `Arquivo > Salvar`).
 
-A maioria dos textos e preços dos rituais está centralizada no arquivo `shared/const.ts` e `client/src/components/sections/PricingSection.tsx`.
+### Para o Ritual Especial (Jogo das Sombras):
 
-### Para Rituais Padrão (Pergunta Única, Combo 3 Perguntas, Arcano Regente Pessoal, Mandala Semestral):
+O "Jogo das Sombras" é um ritual mais elaborado e suas informações estão em outro lugar, mas a forma de editar é parecida.
 
-1.  **Abra o arquivo `shared/const.ts`:**
-    ```typescript
-    // Exemplo de um ritual
-    export const RITUALS: Ritual[] = [
-      {
-        name: "Pergunta Única",
-        tagline: "Clareza imediata",
-        symbol: "✨",
-        price: "R$ 60",
-        deliveryNote: "Áudio ou texto",
-        description: "Ideal para uma dúvida urgente e pontual...",
-        features: [
-          { text: "Pergunta ou tema", isIncluded: true },
-          { text: "Entrega em áudio ou texto", isIncluded: true },
-          { text: "Clareza objetiva e pontual", isIncluded: true },
-        ],
-        mercadoPagoUrl: "#", // Link do Mercado Pago
-      },
-      // ... outros rituais
-    ];
-    ```
-2.  **Edite os campos:** Você pode alterar `name`, `tagline`, `symbol`, `price`, `deliveryNote`, `description` e os `features` de cada ritual. Certifique-se de manter o formato `"Texto"` para strings e `true`/`false` para `isIncluded`.
-3.  **Link do Mercado Pago:** Atualize o `mercadoPagoUrl` com o link de pagamento correto para cada produto. Se o link estiver como `"#"`, o botão exibirá a mensagem "Em breve disponível".
+1.  **Encontre o arquivo:** Vá até a pasta `TLiz` no seu computador, depois entre em `client`, `src`, `components`, `sections`, e abra o arquivo `PricingSection.tsx` com o **Bloco de Notas**.
+2.  **Procure o ritual:** Role a tela para baixo até encontrar uma parte que começa com `const PREMIUM_RITUAL: Ritual = { ... }`. É aqui que estão as informações do Jogo das Sombras.
+3.  **Faça suas mudanças:** Você pode mudar o `name`, `tagline`, `symbol`, `price`, `deliveryNote`, `description`, `features` e o `mercadoPagoUrl` (link de compra) da mesma forma que nos rituais comuns.
+4.  **Salve o arquivo:** Salve o arquivo (`Ctrl + S` ou `Arquivo > Salvar`).
 
-### Para o Ritual Premium (Jogo das Sombras):
+## 3. Como Mudar Textos de Outras Partes do Site
 
-O Jogo das Sombras é um caso especial e suas informações estão diretamente no `client/src/components/sections/PricingSection.tsx` para permitir um layout mais personalizado.
+Textos como o título da página inicial, perguntas frequentes ou o aviso legal estão nos arquivos das suas respectivas seções:
 
-1.  **Abra o arquivo `client/src/components/sections/PricingSection.tsx`:**
-2.  **Procure pela constante `PREMIUM_RITUAL`:**
-    ```typescript
-    const PREMIUM_RITUAL: Ritual = {
-      name: "Jogo das Sombras",
-      tagline: "Desperte sua força interior",
-      symbol: "☾",
-      price: "R$ 297",
-      deliveryNote: "90 min por vídeo",
-      description: "Imersão profunda sob a vibração de Lilith...",
-      features: [
-        { text: "Sessão de 90min ao vivo (WhatsApp)", isIncluded: true },
-        // ... outras features
-      ],
-      mercadoPagoUrl: "#", // Link do Mercado Pago
-      badge: "Premium",
-    };
-    ```
-3.  **Edite os campos:** Assim como nos rituais padrão, você pode alterar os textos, preço e o `mercadoPagoUrl` aqui.
+*   **Página Inicial (HeroSection):** `client/src/components/sections/HeroSection.tsx`
+*   **Perguntas Frequentes (FAQSection):** `client/src/components/sections/FAQSection.tsx`
+*   **Aviso Legal (DisclaimerSection):** `client/src/components/sections/DisclaimerSection.tsx`
+*   **Rodapé (FooterSection):** `client/src/components/sections/FooterSection.tsx`
 
-## 4. Como Alterar Textos de Outras Seções (Hero, FAQ, Disclaimer, Footer)
+Para mudar:
+1.  **Abra o arquivo** da seção desejada com o **Bloco de Notas**.
+2.  **Procure o texto** que você quer mudar.
+3.  **Edite o texto.**
+4.  **Salve o arquivo.**
 
-Os textos dessas seções estão diretamente nos seus respectivos arquivos de componente:
+**Atenção:** Ao editar, mude apenas o texto. Evite mexer em símbolos como `<` ou `>` ou palavras como `className`, pois eles fazem parte da estrutura do site e podem desconfigurá-lo.
 
-*   **HeroSection:** `client/src/components/sections/HeroSection.tsx`
-*   **FAQSection:** `client/src/components/sections/FAQSection.tsx`
-*   **DisclaimerSection:** `client/src/components/sections/DisclaimerSection.tsx`
-*   **FooterSection:** `client/src/components/sections/FooterSection.tsx`
+## 4. Como Atualizar Imagens
 
-Abra o arquivo correspondente e localize o texto que deseja alterar. Tenha cuidado para não modificar a estrutura do código (tags HTML/JSX, classes CSS) ao editar o conteúdo.
+Todas as imagens do seu site estão na pasta `client/public/`.
 
-## 5. Como Atualizar Imagens
+### Para as Imagens de Fundo (do site inteiro):
 
-As imagens do site são armazenadas na pasta `client/public/`.
+1.  **Encontre as imagens:** Vá até a pasta `TLiz` no seu computador, depois entre em `client`, `public`. Lá você verá dois arquivos:
+    *   `bg-desktop.png` (para computadores e telas grandes)
+    *   `bg-mobile.png` (para celulares e telas pequenas)
+2.  **Substitua as imagens:** Se você quiser mudar o fundo, basta colocar suas novas imagens nesta pasta, mas elas **precisam ter exatamente os mesmos nomes** (`bg-desktop.png` e `bg-mobile.png`).
+    *   A imagem `bg-desktop.png` deve ser mais larga (horizontal).
+    *   A imagem `bg-mobile.png` deve ser mais alta (vertical).
 
-### Para Imagens de Fundo (Desktop e Mobile):
+### Para as Imagens dos Cards de Mandala:
 
-1.  **Localize as imagens:** `bg-desktop.png` e `bg-mobile.png` na pasta `client/public/`.
-2.  **Substitua as imagens:** Para atualizar, basta substituir esses arquivos por novas imagens com os **mesmos nomes** (`bg-desktop.png` e `bg-mobile.png`).
-    *   **`bg-desktop.png`:** Deve ser uma imagem mais horizontal (paisagem), ideal para telas largas.
-    *   **`bg-mobile.png`:** Deve ser uma imagem mais vertical (retrato), otimizada para celulares.
-    *   **Importante:** Mantenha os nomes dos arquivos exatamente iguais para que o site as encontre.
+1.  **Encontre as imagens:** Na mesma pasta `client/public/`, você verá:
+    *   `mandala-anual.png`
+    *   `mandala-semestral.png`
+2.  **Substitua as imagens:** Troque esses arquivos pelas suas novas imagens, mantendo os **mesmos nomes**.
 
-### Para Imagens dos Cards de Mandala:
+## 5. Dicas Importantes para Manter o Site
 
-1.  **Localize as imagens:** `mandala-anual.png` e `mandala-semestral.png` na pasta `client/public/`.
-2.  **Substitua as imagens:** Assim como nos fundos, substitua esses arquivos por novas imagens com os **mesmos nomes**.
+*   **Sempre faça uma cópia:** Antes de fazer qualquer mudança grande, copie a pasta `TLiz` inteira para outro lugar seguro no seu computador. Assim, se algo der errado, você tem uma versão de segurança.
+*   **Limpe a memória do navegador:** Depois de fazer e salvar as mudanças, às vezes o seu navegador (Chrome, Edge, etc.) mostra a versão antiga do site. Para ver as novidades, você pode:
+    *   Pressionar `Ctrl + F5` (no Windows) para forçar a atualização da página.
+    *   Ou abrir o site em uma "janela anônima" (ou "privada") do navegador.
+*   **Quando precisar de ajuda:** Se você precisar de uma mudança mais complexa, ou se algo não funcionar como esperado, não hesite em pedir ajuda a um profissional. Este guia é para as tarefas mais simples!
 
-## 6. Manutenção Básica e Boas Práticas
+## 6. Como Suas Mudanças Aparecem no Site (Publicação)
 
-*   **Faça backups:** Antes de fazer grandes alterações, sempre faça uma cópia da pasta do projeto.
-*   **Teste localmente:** Sempre use o comando `pnpm run dev` para testar suas alterações localmente antes de publicá-las.
-*   **Cuidado ao editar código:** Se você não tem experiência com programação, evite alterar arquivos `.tsx` ou `.css` além do conteúdo de texto, para não quebrar o layout ou a funcionalidade do site.
-*   **Limpe o cache:** Após fazer alterações e publicar o site, pode ser necessário limpar o cache do seu navegador (ou usar uma janela anônima) para ver as mudanças imediatamente.
+O seu site está configurado para se atualizar sozinho! Isso significa que, quando você salva as mudanças nos arquivos e elas são enviadas para o local onde o site está guardado na internet (o GitHub), ele se publica automaticamente em alguns minutos.
 
-## 7. Publicando as Alterações (Deploy)
-
-O processo de publicação (deploy) do site geralmente é configurado para ser automático quando você envia as alterações para o GitHub (branch `main`). Se você estiver usando uma plataforma como Netlify, Vercel ou GitHub Pages, ela detectará as mudanças e reconstruirá o site automaticamente.
-
-*   **Passos para publicar (se você estiver usando Git/GitHub):**
-    1.  **Salve suas alterações:** Certifique-se de que todos os arquivos modificados foram salvos.
-    2.  **Abra o Terminal na pasta do projeto.**
-    3.  **Adicione as alterações:**
-        ```bash
-        git add .
-        ```
-    4.  **Confirme as alterações:**
-        ```bash
-        git commit -m "feat: Minha descrição das mudanças"
-        ```
-        *(Substitua "Minha descrição das mudanças" por algo que descreva o que você fez, por exemplo: "feat: Atualiza preço do Arcano Regente")*
-    5.  **Envie para o GitHub:**
-        ```bash
-        git push origin main
-        ```
-    Após esses passos, a plataforma de deploy deve iniciar a atualização do seu site automaticamente.
+**Não se preocupe com comandos complicados.** Basta salvar os arquivos que você editou. O resto acontece sozinho!
 
 ---
 
-Se tiver qualquer dúvida ou precisar de ajuda com algo mais complexo, não hesite em entrar em contato com um desenvolvedor. Este guia é um ponto de partida para sua autonomia!
+Com este guia, espero que você se sinta mais confiante para manter seu site sempre atualizado e com a sua cara!
