@@ -21,13 +21,13 @@ export default function CTASection() {
           </div>
 
           <h2 className="font-display text-3xl md:text-4xl text-parchment mb-4 leading-tight text-shadow-lg">
-            As cartas estão<br />
+            O Tarot está<br />
             <em className="text-gold not-italic">esperando por você.</em>
           </h2>
 
           <p className="font-body text-sm text-smoke mb-8 leading-relaxed">
-            Escolha seu jogo, pague com segurança e receba sua leitura. Sem
-            precisar mandar mensagem primeiro.
+            Escolha seu jogo, realize o pagamento com segurança e receba sua leitura.
+            Tudo de forma simples, clara e direta.
           </p>
 
           <a href="#rituais" className="btn-gold">

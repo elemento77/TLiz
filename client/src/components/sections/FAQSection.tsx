@@ -10,38 +10,122 @@ import { Plus, Minus } from "lucide-react";
 const FAQ_ITEMS = [
   {
     question: "Como funciona a leitura por escrito ou áudio?",
-    answer:
-      "Após o pagamento, você me envia sua pergunta ou tema por WhatsApp. Realizo a tiragem e envio a interpretação completa — detalhada, clara e sem termos confusos — dentro do prazo da modalidade escolhida.",
+    answer: (
+      <>
+        Após o pagamento, você envia sua pergunta ou tema pelo WhatsApp.
+        <br />
+        Realizo a tiragem e envio a interpretação completa, clara e detalhada,
+        sem termos confusos, dentro do prazo da modalidade escolhida.
+      </>
+    ),
   },
   {
-    question: "Preciso acreditar em tarot para funcionar?",
-    answer:
-      "Não. O tarot funciona como uma ferramenta de reflexão e autoconhecimento. Muitos clientes chegam céticos e saem com clareza sobre situações que estavam travadas. O que importa é estar aberto à leitura.",
+    question: "Preciso acreditar em Tarot para funcionar?",
+    answer: (
+      <>
+        Não é necessário acreditar. O Tarot funciona como uma ferramenta
+        simbólica de reflexão e autoconhecimento.
+        <br />
+        Muitas pessoas chegam com curiosidade ou até ceticismo e acabam
+        encontrando clareza sobre situações que estavam confusas ou travadas. O
+        mais importante é estar aberto ao processo de reflexão.
+      </>
+    ),
   },
   {
     question: "Como é feito o pagamento?",
-    answer:
-      "O pagamento é 100% seguro via Mercado Pago. Você pode pagar com Pix (aprovação imediata), cartão de crédito ou débito. Após a confirmação, você recebe as instruções para enviar sua pergunta.",
+    answer: (
+      <>
+        O pagamento é 100% seguro via Mercado Pago.
+        <br />
+        Você pode pagar por:
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>Pix (aprovação imediata)</li>
+          <li>cartão de crédito</li>
+          <li>cartão de débito</li>
+        </ul>
+        <p className="mt-2">
+          Após a confirmação do pagamento, você recebe as instruções para enviar
+          sua pergunta.
+        </p>
+      </>
+    ),
   },
   {
     question: "Posso pedir reembolso?",
-    answer:
-      "Sim. Se a leitura ainda não foi realizada, o reembolso é integral. Após a entrega, não há reembolso — mas me comprometo a responder dúvidas sobre a leitura sem custo adicional.",
+    answer: (
+      <>
+        Sim. Se a leitura ainda não foi realizada, o reembolso é integral.
+        <br />
+        Após a entrega da leitura, não há reembolso.
+      </>
+    ),
   },
   {
     question: "Qual a diferença entre as modalidades?",
-    answer:
-      "A 'Pergunta Única' responde diretamente a uma dúvida urgente. O 'Combo 3 Perguntas' aprofunda um cenário com até 3 desdobramentos. A 'Sessão Estratégica' e o 'Jogo das Sombras' são acompanhamentos ao vivo de imersão profunda. O 'Arcano Regente Pessoal' revela o arquétipo que guia sua missão de vida a partir da sua data de nascimento. A 'Mandala Semestral' mapeia as energias dos próximos 6 meses, e a 'Mandala Anual' faz o mesmo para os 12 meses. Cada modalidade tem seus detalhes listados na tabela acima.",
+    answer: (
+      <div className="space-y-3">
+        <div>
+          <strong className="text-gold">Pergunta Única</strong>
+          <p>Responde diretamente a uma dúvida pontual ou urgente.</p>
+        </div>
+        <div>
+          <strong className="text-gold">Combo 3 Perguntas</strong>
+          <p>Permite aprofundar uma situação com até três desdobramentos.</p>
+        </div>
+        <div>
+          <strong className="text-gold">Sessão Estratégica e Jogo das Sombras</strong>
+          <p>
+            São atendimentos ao vivo, com uma análise mais profunda e
+            investigativa.
+          </p>
+        </div>
+        <div>
+          <strong className="text-gold">Arcano Regente Pessoal</strong>
+          <p>
+            Revela o arquétipo que acompanha sua jornada e missão de vida, a
+            partir da sua data de nascimento.
+          </p>
+        </div>
+        <div>
+          <strong className="text-gold">Mandala Semestral</strong>
+          <p>Mostra as energias que influenciam os próximos 6 meses.</p>
+        </div>
+        <div>
+          <strong className="text-gold">Mandala Anual</strong>
+          <p>Apresenta um mapa simbólico dos próximos 12 meses.</p>
+        </div>
+        <p className="text-xs italic text-smoke/70">
+          Cada modalidade possui seus detalhes descritos na tabela acima.
+        </p>
+      </div>
+    ),
   },
   {
     question: "Posso fazer uma leitura sobre outra pessoa?",
-    answer:
-      "Sim, desde que seja para fins de autoconhecimento — por exemplo, entender uma relação ou situação envolvendo alguém. Não realizo leituras com intenção de manipular ou prejudicar terceiros.",
+    answer: (
+      <>
+        Não realizo leituras diretamente sobre terceiros.
+        <br />
+        A leitura pode abordar uma relação ou situação que envolve outra pessoa,
+        mas sempre a partir da sua perspectiva.
+        <br />
+        Também não realizo leituras com intenção de manipular, prejudicar ou
+        investigar a vida de terceiros.
+      </>
+    ),
   },
   {
     question: "Quanto tempo leva para receber a leitura?",
-    answer:
-      "O prazo varia conforme a modalidade escolhida e é informado após a confirmação do pagamento. Sessões ao vivo são agendadas previamente conforme disponibilidade de agenda.",
+    answer: (
+      <>
+        O prazo varia conforme a modalidade escolhida e é informado após a
+        confirmação do pagamento.
+        <br />
+        Sessões ao vivo são agendadas previamente, conforme disponibilidade de
+        agenda.
+      </>
+    ),
   },
 ];
 
@@ -82,9 +166,9 @@ function AccordionItem({
             transition={{ duration: 0.22 }}
             className="overflow-hidden"
           >
-            <p className="font-body text-sm text-smoke leading-relaxed pb-4 pr-6">
+            <div className="font-body text-sm text-smoke leading-relaxed pb-4 pr-6">
               {faq.answer}
-            </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
