@@ -5,7 +5,7 @@
  */
 
 import { motion } from "framer-motion";
-import { Check, X, Shield, Flame, Sparkles, Crown, Info } from "lucide-react";
+import { Check, X, Shield, Flame, Sparkles, Info } from "lucide-react";
 import { toast } from "sonner";
 import MandalaCard from "./MandalaCard";
 
@@ -413,7 +413,7 @@ export default function PricingSection() {
         </div>
 
         {/* Mandalas Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
           {MANDALA_RITUALS.map((mandala, index) => (
             <MandalaCard
               key={index}
