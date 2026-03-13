@@ -208,7 +208,7 @@ export default function FAQSection() {
                 Respondo em até 2h nos dias úteis.
               </p>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5511968673124"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost text-xs py-2.5 w-full block text-center"

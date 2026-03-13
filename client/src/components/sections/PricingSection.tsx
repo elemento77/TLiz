@@ -5,7 +5,7 @@
  */
 
 import { motion } from "framer-motion";
-import { Check, X, Shield, Flame, Sparkles, Crown } from "lucide-react";
+import { Check, X, Shield, Flame, Sparkles, Crown, Info } from "lucide-react";
 import { toast } from "sonner";
 import MandalaCard from "./MandalaCard";
 
@@ -63,12 +63,12 @@ const STANDARD_RITUALS: Ritual[] = [
     name: "Combo 3 Perguntas",
     tagline: "Visão mais completa",
     price: "R$ 130",
-    deliveryNote: "respostas em PDF",
+    deliveryNote: "respostas em formato Digital",
     description:
       "Uma análise mais ampla para situações com mais de um desdobramento, permitindo uma visão mais completa do cenário e dos próximos passos.",
     features: [
       { text: "Até 3 perguntas ou desdobramentos", isIncluded: true },
-      { text: "Entrega de PDF detalhado", isIncluded: true },
+      { text: "Entrega em formato Digital detalhado", isIncluded: true },
       { text: "Visão abrangente do cenário", isIncluded: true },
       { text: "Orientações dos próximos passos", isIncluded: true },
       { text: "Sessão ao vivo", isIncluded: false },
@@ -88,8 +88,8 @@ const STANDARD_RITUALS: Ritual[] = [
     features: [
       { text: "Sessão de 1h ao vivo por WhatsApp", isIncluded: true },
       { text: "Análise detalhada e investigação de áreas", isIncluded: true },
-      { text: "Plano de Ação de 7 Dias (PDF)", isIncluded: true },
-      { text: "Bônus: Arcano Regente Pessoal (PDF)", isIncluded: true },
+      { text: "Plano de Ação de 7 Dias (Digital)", isIncluded: true },
+      { text: "Bônus: Arcano Regente Pessoal (Digital)", isIncluded: true },
     ],
     isFeatured: true,
     badge: "Mais Buscado",
@@ -101,7 +101,7 @@ const STANDARD_RITUALS: Ritual[] = [
     name: "Arcano Regente Pessoal",
     tagline: "Seu arquétipo de vida",
     price: "R$ 60",
-    deliveryNote: "entrega em PDF",
+    deliveryNote: "entrega em formato Digital",
     description:
       "O Arcano Regente revela o arquétipo que acompanha sua jornada ao longo da vida. Através do Tarot e da sua data de nascimento, identificamos a energia simbólica que influencia sua personalidade, seus talentos naturais e os aprendizados do seu caminho.",
     features: [
@@ -128,7 +128,7 @@ const PREMIUM_RITUAL: Ritual = {
     { text: "Sessão de 90min ao vivo (WhatsApp)", isIncluded: true },
     { text: "Identificar padrões e bloqueios ocultos", isIncluded: true },
     { text: "Plano estratégico de 7 dias", isIncluded: true },
-    { text: "Bônus: Arcano Regente Pessoal (PDF)", isIncluded: true },
+    { text: "Bônus: Arcano Regente Pessoal (Digital)", isIncluded: true },
     { text: "Acompanhamento pós-sessão por 48h", isIncluded: true },
   ],
   isFeatured: true,
@@ -144,7 +144,7 @@ const MANDALA_RITUALS = [
     ritualName: "Mandala Anual",
     tagline: "Mapa dos próximos 12 meses",
     price: "R$ 247",
-    deliveryNote: "PDF + Notas explicativas",
+    deliveryNote: "Digital + Notas explicativas",
     description:
       "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
     features: [
@@ -162,7 +162,7 @@ const MANDALA_RITUALS = [
     ritualName: "Mandala Semestral",
     tagline: "Mapa dos próximos 6 meses",
     price: "R$ 147",
-    deliveryNote: "entrega em PDF",
+    deliveryNote: "entrega em formato Digital",
     description:
       "A Mandala Semestral é uma leitura estratégica que revela as energias que irão influenciar seu ciclo nos próximos seis meses. Cada período é analisado através dos arcanos do Tarot, trazendo clareza sobre momentos de expansão, desafios e oportunidades de crescimento.",
     features: [
@@ -282,170 +282,9 @@ function StandardRitualCard({
         </button>
         <div className="flex items-center justify-center gap-1.5 mt-3">
           <Shield size={11} className="text-smoke/40" />
-          <span className="font-body text-[10px] text-smoke/40 uppercase tracking-wider">
-            Pagamento seguro · Mercado Pago
+          <span className="font-body text-[10px] text-smoke/40 uppercase tracking-widest">
+            Pagamento Seguro
           </span>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-/* ─── Premium Hero Card — Jogo das Sombras ─── */
-
-function PremiumRitualCard({ ritual }: { ritual: Ritual }) {
-  return (
-    <motion.div
-      className="relative max-w-4xl mx-auto"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {/* Ambient glow behind the card */}
-      <div
-        className="absolute -inset-4 rounded-2xl opacity-50 blur-2xl pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, oklch(0.52 0.18 300 / 0.20), transparent 70%)",
-          animation: "premium-pulse 4s ease-in-out infinite",
-        }}
-      />
-
-      <div className="esoteric-card-premium relative z-10">
-        {/* Premium badge — positioned inside top edge */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 z-20 pt-3">
-          <motion.div
-            className="flex items-center gap-2 px-5 py-1.5 rounded-full font-body font-semibold text-[10px] uppercase tracking-[0.15em] whitespace-nowrap"
-            style={{
-              background:
-                "linear-gradient(135deg, oklch(0.52 0.18 300), oklch(0.42 0.16 310))",
-              color: "oklch(0.93 0.020 80)",
-              boxShadow:
-                "0 4px 20px oklch(0.52 0.18 300 / 0.40), 0 0 10px oklch(0.52 0.18 300 / 0.20)",
-            }}
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <Crown size={12} />
-            {ritual.badge}
-          </motion.div>
-        </div>
-
-        {/* Content — horizontal on desktop, vertical on mobile */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Left: atmospheric visual */}
-          <div className="relative p-8 md:p-10 flex flex-col justify-center items-center text-center md:border-r border-amethyst/10">
-            {/* Decorative background orb */}
-            <div
-              className="absolute inset-0 opacity-30 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 40%, oklch(0.52 0.18 300 / 0.25), transparent 60%)",
-              }}
-            />
-
-            <motion.div
-              className="relative z-10"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-6xl mb-4 drop-shadow-lg">{ritual.symbol}</div>
-              <h3 className="font-display text-3xl md:text-4xl text-parchment mb-3 text-shadow-lg leading-tight">
-                {ritual.name}
-              </h3>
-              <p className="font-body text-xs uppercase tracking-[0.2em] text-amethyst mb-6">
-                {ritual.tagline}
-              </p>
-
-              <div className="flex items-baseline justify-center gap-2 mb-2">
-                <span className="font-display text-5xl text-gold text-shadow-lg">
-                  {ritual.price}
-                </span>
-              </div>
-              <p className="font-body text-[10px] uppercase tracking-widest text-smoke/50">
-                {ritual.deliveryNote}
-              </p>
-
-              {/* Decorative ornament */}
-              <div className="mt-6 flex items-center justify-center gap-3 text-amethyst/40">
-                <span className="block w-8 h-px bg-amethyst/30" />
-                <Flame size={14} />
-                <span className="block w-8 h-px bg-amethyst/30" />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right: details & CTA */}
-          <div className="relative z-10 p-8 md:p-10 flex flex-col justify-center">
-            <p className="font-body text-sm text-smoke leading-relaxed mb-6">
-              {ritual.description}
-            </p>
-
-            <div className="space-y-3 mb-8">
-              {ritual.features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.3 + index * 0.08 }}
-                >
-                  {feature.isIncluded ? (
-                    <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-amethyst/20 border border-amethyst/30">
-                      <Check size={11} className="text-gold" strokeWidth={3} />
-                    </div>
-                  ) : (
-                    <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-smoke/5">
-                      <X size={11} className="text-smoke/30" strokeWidth={2} />
-                    </div>
-                  )}
-                  <span
-                    className={`font-body text-sm leading-snug ${
-                      feature.isIncluded ? "text-parchment" : "text-smoke/30 line-through"
-                    }`}
-                  >
-                    {feature.text}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.button
-              onClick={() => handlePaymentClick(ritual.mercadoPagoUrl)}
-              className="w-full py-4 font-body font-bold text-sm uppercase tracking-[0.15em] rounded-lg transition-all duration-300 relative overflow-hidden group"
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.52 0.18 300), oklch(0.42 0.16 310))",
-                color: "oklch(0.93 0.020 80)",
-                boxShadow:
-                  "0 4px 20px oklch(0.52 0.18 300 / 0.30), 0 0 10px oklch(0.52 0.18 300 / 0.15)",
-              }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow:
-                  "0 6px 30px oklch(0.52 0.18 300 / 0.45), 0 0 20px oklch(0.52 0.18 300 / 0.25)",
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <Sparkles size={16} />
-                {ritual.ctaLabel}
-              </span>
-            </motion.button>
-
-            <div className="flex items-center justify-center gap-1.5 mt-4">
-              <Shield size={11} className="text-smoke/40" />
-              <span className="font-body text-[10px] text-smoke/40 uppercase tracking-wider">
-                Pagamento seguro · Mercado Pago
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </motion.div>
@@ -456,100 +295,171 @@ function PremiumRitualCard({ ritual }: { ritual: Ritual }) {
 
 export default function PricingSection() {
   return (
-    <section id="rituais" className="py-16">
-      <div className="container">
-        {/* Section header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-3">
-            ✦ Explorar
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-parchment mb-3 text-shadow-md">
-            Modalidades de Jogo
-          </h2>
-          <p className="font-body text-sm text-smoke max-w-md mx-auto leading-relaxed">
-            Escolha o formato ideal para o seu momento e agende sua leitura.
-          </p>
-        </motion.div>
+    <section id="rituais" className="py-24 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-20">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/5 blur-[120px] rounded-full" />
+      </div>
 
-        {/* Standard rituals grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 max-w-4xl mx-auto items-stretch justify-center mb-16">
+      <div className="container relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-gold mb-3">
+              ✦ Escolha seu Caminho
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl text-parchment mb-6 text-shadow-lg">
+              Rituais de <em className="text-gold not-italic">Clareza</em>
+            </h2>
+            <p className="font-body text-base text-smoke leading-relaxed">
+              Cada leitura é um portal para o autoconhecimento. Escolha a modalidade
+              que melhor ressoa com o seu momento atual.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Standard Rituals Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {STANDARD_RITUALS.map((ritual, index) => (
-            <StandardRitualCard key={ritual.name} ritual={ritual} index={index} />
+            <StandardRitualCard key={index} ritual={ritual} index={index} />
           ))}
         </div>
 
-        {/* Premium hero — Jogo das Sombras */}
-        <div className="mb-16 pt-4">
+        {/* Premium Ritual Hero */}
+        <div className="mb-12">
           <motion.div
-            className="ornament mb-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="esoteric-card-premium overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-amethyst text-sm flex items-center gap-2">
-              <Flame size={14} />
-              Experiência Premium
-              <Flame size={14} />
-            </span>
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+              <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
+                <img
+                  src={TAROT_CARDS_IMAGE_URL}
+                  alt="Jogo das Sombras"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-void via-void/40 to-transparent lg:block hidden" />
+                <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent lg:hidden block" />
+                
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Flame size={16} className="text-gold" />
+                    <span className="font-body text-[10px] uppercase tracking-[0.3em] text-gold font-bold">
+                      Vibração de Lilith
+                    </span>
+                  </div>
+                  <h3 className="font-display text-3xl text-parchment text-shadow-lg">
+                    {PREMIUM_RITUAL.name}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col">
+                <div className="flex flex-wrap items-baseline gap-4 mb-6">
+                  <span className="font-display text-4xl text-gold text-shadow-sm">
+                    {PREMIUM_RITUAL.price}
+                  </span>
+                  <span className="font-body text-xs uppercase tracking-widest text-smoke/60">
+                    {PREMIUM_RITUAL.deliveryNote}
+                  </span>
+                  <div className="bg-gold/10 border border-gold/20 px-3 py-1 rounded-full">
+                    <span className="font-body text-[10px] text-gold uppercase tracking-widest font-bold">
+                      {PREMIUM_RITUAL.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <p className="font-body text-base text-smoke leading-relaxed mb-8">
+                  {PREMIUM_RITUAL.description}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+                  {PREMIUM_RITUAL.features.map((feature, index) => (
+                    <FeatureItem key={index} feature={feature} />
+                  ))}
+                </div>
+
+                <div className="mt-auto flex flex-col sm:flex-row items-center gap-6">
+                  <button
+                    onClick={() => handlePaymentClick(PREMIUM_RITUAL.mercadoPagoUrl)}
+                    className="btn-gold w-full sm:w-auto px-10 py-4"
+                  >
+                    {PREMIUM_RITUAL.ctaLabel}
+                  </button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="w-8 h-8 rounded-full border-2 border-void bg-gold/20 flex items-center justify-center">
+                          <Sparkles size={12} className="text-gold" />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="font-body text-[10px] text-smoke/50 uppercase tracking-widest">
+                      Vagas limitadas por semana
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
-
-          <PremiumRitualCard ritual={PREMIUM_RITUAL} />
         </div>
 
-        {/* Mandala rituals with immersive design */}
-        <div className="mt-8 mb-8">
-          <motion.p
-            className="font-body text-xs uppercase tracking-[0.25em] text-gold-dim mb-8 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            ✦ Mandalas Estratégicas
-          </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {MANDALA_RITUALS.map((mandala) => (
-              <MandalaCard
-                key={mandala.mandalaName}
-                mandalaName={mandala.mandalaName}
-                imageUrl={mandala.imageUrl}
-                ritualName={mandala.ritualName}
-                tagline={mandala.tagline}
-                price={mandala.price}
-                deliveryNote={mandala.deliveryNote}
-                description={mandala.description}
-                features={mandala.features}
-                ctaLabel={mandala.ctaLabel}
-                mercadoPagoUrl={mandala.mercadoPagoUrl}
-                onPaymentClick={handlePaymentClick}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Image accent */}
-        <motion.div
-          className="mt-14 flex justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          <div className="relative max-w-xs w-full overflow-hidden esoteric-card">
-            <img
-              src={TAROT_CARDS_IMAGE_URL}
-              alt="Cartas de tarot sobre veludo"
-              className="w-full h-40 object-cover object-center opacity-70 rounded-t-md"
+        {/* Mandalas Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {MANDALA_RITUALS.map((mandala, index) => (
+            <MandalaCard
+              key={index}
+              {...mandala}
+              onPaymentClick={() => handlePaymentClick(mandala.mercadoPagoUrl)}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-void/80 to-transparent" />
-            <p className="absolute bottom-3 left-0 right-0 text-center font-body text-[10px] uppercase tracking-[0.25em] text-gold-dim">
-              Pix · Cartão
-            </p>
+          ))}
+        </div>
+
+        {/* Important Information Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="glass-panel p-8 border border-gold/10">
+            <div className="flex items-center gap-3 mb-6">
+              <Info size={20} className="text-gold" />
+              <h3 className="font-display text-xl text-parchment">Informações Importantes</h3>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-body text-xs uppercase tracking-widest text-gold mb-2">Nota sobre o formato</h4>
+                  <p className="font-body text-sm text-smoke leading-relaxed">
+                    Todos os materiais listados como <strong>"Digital"</strong> são entregues em formato <strong>PDF</strong> de qualidade, prontos para leitura em qualquer celular ou computador.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-body text-xs uppercase tracking-widest text-gold mb-2">Formas de Pagamento</h4>
+                  <p className="font-body text-sm text-smoke leading-relaxed">
+                    Pix ou Cartão via Mercado Pago.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-gold/5 p-5 rounded-lg border border-gold/5">
+                <h4 className="font-body text-xs uppercase tracking-widest text-gold mb-2">Aviso Legal</h4>
+                <p className="font-body text-sm text-smoke/80 leading-relaxed italic">
+                  O Tarot é uma ferramenta de autoconhecimento. Não substitui tratamentos médicos ou psicológicos.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
