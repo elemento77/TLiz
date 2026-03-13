@@ -1,6 +1,7 @@
 /**
  * MandalaCard — Immersive ritual card with click-to-reveal interaction
- * Displays mandala artwork initially, reveals product details on click.
+ * Desktop: Side-by-side composition with image and details
+ * Mobile: Stacked layout (unchanged)
  * Glassmorphism styling for expanded view.
  */
 
@@ -90,6 +91,7 @@ function CollapsedView({
 }
 
 function ExpandedView({
+  imageUrl,
   ritualName,
   tagline,
   price,
@@ -101,6 +103,7 @@ function ExpandedView({
   onPaymentClick,
   onCollapse,
 }: {
+  imageUrl: string;
   ritualName: string;
   tagline: string;
   price: string;
@@ -119,60 +122,95 @@ function ExpandedView({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
-      className="esoteric-card-featured flex flex-col h-full relative"
+      className="esoteric-card-featured flex flex-col lg:flex-row h-full relative overflow-hidden"
     >
+      {/* Close Button */}
       <button
         onClick={onCollapse}
-        className="absolute top-4 right-4 z-10 p-2 rounded-md hover:bg-gold/10 transition-colors glass-panel"
+        className="absolute top-4 right-4 z-10 p-2 rounded-md hover:bg-gold/10 transition-colors glass-panel lg:hidden"
         aria-label="Fechar detalhes"
       >
         <ChevronDown size={18} className="text-gold" />
       </button>
 
-      <div className="p-6 pb-5 border-b border-gold/15">
-        <div className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke mb-1">
-          {tagline}
-        </div>
-        <h3 className="font-display text-xl text-parchment mb-4 text-shadow-sm">
-          {ritualName}
-        </h3>
-        <div className="flex items-baseline gap-1.5 mb-2">
-          <span className="font-display text-3xl text-gold text-shadow-sm">
-            {price}
-          </span>
-        </div>
-        <div className="font-body text-[10px] uppercase tracking-widest text-smoke/50">
-          {deliveryNote}
-        </div>
+      {/* Image Section - Left side on desktop */}
+      <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-8 border-r border-gold/10">
+        <img
+          src={imageUrl}
+          alt={ritualName}
+          className="w-full h-full object-contain max-h-96"
+        />
       </div>
 
-      <div className="px-6 pt-4 pb-3">
-        <p className="font-body text-sm text-smoke leading-relaxed">
-          {description}
-        </p>
-      </div>
-
-      <div className="px-6 pb-5 flex-1">
-        <div className="space-y-2 mt-2">
-          {features.map((feature, index) => (
-            <FeatureItem key={index} feature={feature} />
-          ))}
+      {/* Content Section - Right side on desktop, full width on mobile */}
+      <div className="flex flex-col h-full lg:w-1/2 p-6 lg:p-8">
+        {/* Mobile Image - Only visible on mobile */}
+        <div className="lg:hidden mb-6 -mx-6 -mt-6 mb-6">
+          <img
+            src={imageUrl}
+            alt={ritualName}
+            className="w-full h-64 object-contain"
+          />
         </div>
-      </div>
 
-      <div className="p-6 pt-0">
+        {/* Header */}
+        <div className="mb-6">
+          <div className="font-body text-[10px] uppercase tracking-[0.2em] text-smoke mb-1">
+            {tagline}
+          </div>
+          <h3 className="font-display text-2xl lg:text-3xl text-parchment mb-4 text-shadow-sm">
+            {ritualName}
+          </h3>
+          <div className="flex items-baseline gap-1.5 mb-2">
+            <span className="font-display text-3xl lg:text-4xl text-gold text-shadow-sm">
+              {price}
+            </span>
+          </div>
+          <div className="font-body text-[10px] uppercase tracking-widest text-smoke/50">
+            {deliveryNote}
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="mb-6">
+          <p className="font-body text-sm text-smoke leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* Features */}
+        <div className="flex-1 mb-6">
+          <div className="space-y-2">
+            {features.map((feature, index) => (
+              <FeatureItem key={index} feature={feature} />
+            ))}
+          </div>
+        </div>
+
+        {/* Footer - CTA and Security Badge */}
+        <div className="border-t border-gold/15 pt-6">
+          <button
+            onClick={() => onPaymentClick(mercadoPagoUrl)}
+            className="w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 bg-gold text-void hover:bg-gold/90 glow-gold-sm rounded-md mb-3"
+          >
+            {ctaLabel}
+          </button>
+          <div className="flex items-center justify-center gap-1.5">
+            <Shield size={11} className="text-smoke/40" />
+            <span className="font-body text-[10px] text-smoke/40 uppercase tracking-wider">
+              Pagamento seguro · Mercado Pago
+            </span>
+          </div>
+        </div>
+
+        {/* Close Button - Desktop only */}
         <button
-          onClick={() => onPaymentClick(mercadoPagoUrl)}
-          className="w-full py-3 font-body font-semibold text-xs uppercase tracking-widest transition-all duration-200 bg-gold text-void hover:bg-gold/90 glow-gold-sm rounded-md"
+          onClick={onCollapse}
+          className="hidden lg:block absolute top-6 right-6 p-2 rounded-md hover:bg-gold/10 transition-colors glass-panel"
+          aria-label="Fechar detalhes"
         >
-          {ctaLabel}
+          <ChevronDown size={18} className="text-gold" />
         </button>
-        <div className="flex items-center justify-center gap-1.5 mt-3">
-          <Shield size={11} className="text-smoke/40" />
-          <span className="font-body text-[10px] text-smoke/40 uppercase tracking-wider">
-            Pagamento seguro · Mercado Pago
-          </span>
-        </div>
       </div>
     </motion.div>
   );
@@ -206,6 +244,7 @@ export default function MandalaCard({
           />
         ) : (
           <ExpandedView
+            imageUrl={imageUrl}
             ritualName={ritualName}
             tagline={tagline}
             price={price}
