@@ -16,8 +16,8 @@ const RITUAL_OPTIONS = [
   "Sessão Estratégica",
   "Seu Arquétipo de Vida",
   "O Jogo das Sombras: Imersão Lilith",
-  "Mandala Anual",
-  "Mandala Semestral",
+  "Mapa da Jornada Anual",
+  "Mapa da Jornada Semestral",
 ];
 
 function SuccessView() {

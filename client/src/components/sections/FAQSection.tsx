@@ -88,11 +88,11 @@ const FAQ_ITEMS = [
           </p>
         </div>
         <div>
-          <strong className="text-gold">Mandala Semestral</strong>
+          <strong className="text-gold">Mapa da Jornada Semestral</strong>
           <p>Mostra as energias que influenciam os próximos 6 meses.</p>
         </div>
         <div>
-          <strong className="text-gold">Mandala Anual</strong>
+          <strong className="text-gold">Mapa da Jornada Anual</strong>
           <p>Apresenta um mapa simbólico dos próximos 12 meses.</p>
         </div>
         <p className="text-xs italic text-smoke/70">

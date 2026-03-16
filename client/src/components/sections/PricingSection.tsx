@@ -62,7 +62,7 @@ const STANDARD_RITUALS: Ritual[] = [
     symbol: "✦",
     name: "Combo 3 Perguntas",
     tagline: "Visão mais completa",
-    price: "R$ 130",
+    price: "R$ 108,00",
     deliveryNote: "respostas em formato Digital",
     description:
       "Uma análise mais ampla para situações com mais de um desdobramento, permitindo uma visão mais completa do cenário e dos próximos passos.",
@@ -141,7 +141,7 @@ const MANDALA_RITUALS = [
   {
     mandalaName: "annual" as const,
     imageUrl: `${import.meta.env.BASE_URL}mandala-anual.png`,
-    ritualName: "Mandala Anual",
+    ritualName: "Mapa da Jornada Anual",
     tagline: "Mapa dos próximos 12 meses",
     price: "R$ 180",
     deliveryNote: "Digital + Notas explicativas",
@@ -159,7 +159,7 @@ const MANDALA_RITUALS = [
   {
     mandalaName: "semestral" as const,
     imageUrl: `${import.meta.env.BASE_URL}mandala-semestral.png`,
-    ritualName: "Mandala Semestral",
+    ritualName: "Mapa da Jornada Semestral",
     tagline: "Mapa dos próximos 6 meses",
     price: "R$ 120",
     deliveryNote: "entrega em formato Digital",
@@ -459,6 +459,13 @@ export default function PricingSection() {
                   O Tarot é uma ferramenta de autoconhecimento. Não substitui tratamentos médicos ou psicológicos.
                 </p>
               </div>
+            </div>
+            
+            {/* Promotional Notice */}
+            <div className="mt-8 pt-6 border-t border-gold/10 text-center">
+              <p className="font-body text-xs text-smoke/60 italic">
+                Garanta sua análise com o valor promocional deste ciclo. Preços sujeitos a alteração sem aviso prévio.
+              </p>
             </div>
           </div>
         </motion.div>
