@@ -81,7 +81,7 @@ const STANDARD_RITUALS: Ritual[] = [
     symbol: "☿",
     name: "Sessão Estratégica",
     tagline: "Profundo e transformador",
-    price: "R$ 197",
+    price: "R$ 187,00",
     deliveryNote: "1h por vídeo",
     description:
       "Não é apenas uma leitura, é um alinhamento completo. Mergulhamos na sua situação com foco total em clareza e estratégia.",
@@ -89,50 +89,50 @@ const STANDARD_RITUALS: Ritual[] = [
       { text: "Sessão de 1h ao vivo por WhatsApp", isIncluded: true },
       { text: "Análise detalhada e investigação de áreas", isIncluded: true },
       { text: "Plano de Ação de 7 Dias (Digital)", isIncluded: true },
-      { text: "Bônus: Arcano Regente Pessoal (Digital)", isIncluded: true },
+      { text: "Bônus: ARQUETIPO DE VIBRAÇAO PESSOAL (Digital)", isIncluded: true },
     ],
     isFeatured: true,
-    badge: "Mais Buscado",
+    badge: "Inauguração",
     ctaLabel: "Agendar Sessão",
     mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
   },
   {
     symbol: "🔮",
-    name: "Arcano Regente Pessoal",
-    tagline: "Seu arquétipo de vida",
+    name: "Seu Arquétipo de Vida",
+    tagline: "A Vibração da sua Essência",
     price: "R$ 60",
-    deliveryNote: "entrega em formato Digital",
+    deliveryNote: "Formato Digital (PDF)",
     description:
-      "O Arcano Regente revela o arquétipo que acompanha sua jornada ao longo da vida. Através do Tarot e da sua data de nascimento, identificamos a energia simbólica que influencia sua personalidade, seus talentos naturais e os aprendizados do seu caminho.",
+      "Descubra a energia que influencia sua jornada através da fluência do Tarot. O seu Arcano Pessoal não é apenas um número; é a bússola simbólica que acompanha sua alma desde o nascimento. Através de um cálculo numerológico oculto na sua data de nascimento através da sabedoria do Tarot, revelamos a força arquetípica que molda sua personalidade, desperta seus talentos latentes e sinaliza os grandes aprendizados do seu caminho.",
     features: [
-      { text: "Interpretação do seu Arcano Regente", isIncluded: true },
-      { text: "Potenciais e desafios do arquétipo", isIncluded: true },
-      { text: "Orientação para aplicar essa energia", isIncluded: true },
+      { text: "A Revelação do seu Arcano: interpretação profunda", isIncluded: true },
+      { text: "Luz e Sombra: potenciais e desafios", isIncluded: true },
+      { text: "Direcionamento Prático: alinhar sua energia", isIncluded: true },
       { text: "Sessão ao vivo", isIncluded: false },
     ],
     isFeatured: false,
-    ctaLabel: "Descobrir Arcano",
+    ctaLabel: "Descobrir Arquétipo",
     mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
   },
 ];
 
 const PREMIUM_RITUAL: Ritual = {
   symbol: "☾",
-  name: "Jogo das Sombras",
-  tagline: "Desperte sua Força Interior",
-  price: "R$ 297",
+  name: "O Jogo das Sombras: Imersão Lilith",
+  tagline: "Confronte o oculto. Resgate sua potência.",
+  price: "R$ 237,00",
   deliveryNote: "90 min por vídeo",
   description:
-    "Imersão profunda sob a vibração de Lilith para confrontar padrões ocultos e revelar a força que já existe dentro de você. Uma experiência transformadora que vai além da leitura — é um mergulho nas suas sombras para encontrar sua verdadeira potência.",
+    "A Imersão das Sombras não é uma leitura comum; é um rito de passagem. Sob a frequência de Lilith, mergulharemos nos padrões invisíveis que limitam sua expansão para revelar a força indomável que habita em você. Este é o convite para quem não teme a própria verdade: um mergulho consciente no inconsciente para integrar suas sombras e acessar sua verdadeira autoridade pessoal.",
   features: [
-    { text: "Sessão de 90min ao vivo (WhatsApp)", isIncluded: true },
-    { text: "Identificar padrões e bloqueios ocultos", isIncluded: true },
-    { text: "Plano estratégico de 7 dias", isIncluded: true },
-    { text: "Bônus: Arcano Regente Pessoal (Digital)", isIncluded: true },
+    { text: "Confronto de padrões repetitivos", isIncluded: true },
+    { text: "Revelação de desejos ocultos", isIncluded: true },
+    { text: "Despertar da sua força primordial", isIncluded: true },
+    { text: "Bônus: ARQUETIPO DE VIBRAÇAO PESSOAL (Digital)", isIncluded: true },
     { text: "Acompanhamento pós-sessão por 48h", isIncluded: true },
   ],
   isFeatured: true,
-  badge: "Premium · Imersão Profunda",
+  badge: "Premium · Imersão Lilith",
   ctaLabel: "Iniciar Imersão",
   mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
 };
@@ -143,7 +143,7 @@ const MANDALA_RITUALS = [
     imageUrl: `${import.meta.env.BASE_URL}mandala-anual.png`,
     ritualName: "Mandala Anual",
     tagline: "Mapa dos próximos 12 meses",
-    price: "R$ 247",
+    price: "R$ 180",
     deliveryNote: "Digital + Notas explicativas",
     description:
       "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
@@ -151,7 +151,7 @@ const MANDALA_RITUALS = [
       { text: "Previsões mês a mês", isIncluded: true },
       { text: "Identificação de oportunidades", isIncluded: true },
       { text: "Reconhecer pontos de atenção", isIncluded: true },
-      { text: "Bônus: Arcano Regente Pessoal", isIncluded: true },
+      { text: "Bônus: ARQUETIPO DE VIBRAÇAO PESSOAL", isIncluded: true },
     ],
     ctaLabel: "Fazer Mandala",
     mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
@@ -161,7 +161,7 @@ const MANDALA_RITUALS = [
     imageUrl: `${import.meta.env.BASE_URL}mandala-semestral.png`,
     ritualName: "Mandala Semestral",
     tagline: "Mapa dos próximos 6 meses",
-    price: "R$ 147",
+    price: "R$ 120",
     deliveryNote: "entrega em formato Digital",
     description:
       "A Mandala Semestral é uma leitura estratégica que revela as energias que irão influenciar seu ciclo nos próximos seis meses. Cada período é analisado através dos arcanos do Tarot, trazendo clareza sobre momentos de expansão, desafios e oportunidades de crescimento.",
@@ -343,7 +343,7 @@ export default function PricingSection() {
               <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
                 <img
                   src={TAROT_CARDS_IMAGE_URL}
-                  alt="Jogo das Sombras"
+                  alt="O Jogo das Sombras: Imersão Lilith"
                   className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-void via-void/40 to-transparent lg:block hidden" />

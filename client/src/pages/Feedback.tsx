@@ -14,8 +14,8 @@ const RITUAL_OPTIONS = [
   "Pergunta Única",
   "Combo 3 Perguntas",
   "Sessão Estratégica",
-  "Arcano Regente Pessoal",
-  "Jogo das Sombras",
+  "Seu Arquétipo de Vida",
+  "O Jogo das Sombras: Imersão Lilith",
   "Mandala Anual",
   "Mandala Semestral",
 ];

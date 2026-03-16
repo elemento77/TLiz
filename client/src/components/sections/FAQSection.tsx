@@ -74,14 +74,14 @@ const FAQ_ITEMS = [
           <p>Permite aprofundar uma situação com até três desdobramentos.</p>
         </div>
         <div>
-          <strong className="text-gold">Sessão Estratégica e Jogo das Sombras</strong>
+          <strong className="text-gold">Sessão Estratégica e O Jogo das Sombras: Imersão Lilith</strong>
           <p>
             São atendimentos ao vivo, com uma análise mais profunda e
             investigativa.
           </p>
         </div>
         <div>
-          <strong className="text-gold">Arcano Regente Pessoal</strong>
+          <strong className="text-gold">Seu Arquétipo de Vida</strong>
           <p>
             Revela o arquétipo que acompanha sua jornada e missão de vida, a
             partir da sua data de nascimento.
