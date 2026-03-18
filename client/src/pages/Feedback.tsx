@@ -14,7 +14,7 @@ const RITUAL_OPTIONS = [
   "Pergunta Única",
   "Combo 3 Perguntas",
   "Sessão Estratégica",
-  "Seu Arquétipo de Vida",
+  "O Código da sua Essência",
   "O Jogo das Sombras: Imersão Lilith",
   "Mapa da Jornada Anual",
   "Mapa da Jornada Semestral",

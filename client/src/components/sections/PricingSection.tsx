@@ -98,12 +98,12 @@ const STANDARD_RITUALS: Ritual[] = [
   },
   {
     symbol: "🔮",
-    name: "Seu Arquétipo de Vida",
-    tagline: "A Vibração da sua Essência",
+    name: "O Código da sua Essência",
+    tagline: "Seu Arquétipo de Vibração Pessoal",
     price: "R$ 60",
     deliveryNote: "Formato Digital (PDF)",
     description:
-      "Descubra a energia que influencia sua jornada através da fluência do Tarot. O seu Arcano Pessoal não é apenas um número; é a bússola simbólica que acompanha sua alma desde o nascimento. Através de um cálculo numerológico oculto na sua data de nascimento através da sabedoria do Tarot, revelamos a força arquetípica que molda sua personalidade, desperta seus talentos latentes e sinaliza os grandes aprendizados do seu caminho.",
+      "Oculto na sua data de nascimento, existe uma frequência esperando para ser revelada. Através da sabedoria do Tarot, revelamos a força arquetípica que molda sua personalidade, desperta seus talentos latentes e sinaliza os grandes aprendizados do seu caminho.",
     features: [
       { text: "A Revelação do seu Arcano: interpretação profunda", isIncluded: true },
       { text: "Luz e Sombra: potenciais e desafios", isIncluded: true },

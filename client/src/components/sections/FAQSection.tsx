@@ -81,7 +81,7 @@ const FAQ_ITEMS = [
           </p>
         </div>
         <div>
-          <strong className="text-gold">Seu Arquétipo de Vida</strong>
+          <strong className="text-gold">O Código da sua Essência</strong>
           <p>
             Revela o arquétipo que acompanha sua jornada e missão de vida, a
             partir da sua data de nascimento.
