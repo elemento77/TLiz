@@ -18,8 +18,8 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
-    name: "Fernanda L.",
-    text: "Já fiz três leituras. Cada uma no momento certo. A entrega por escrito é um diferencial enorme.",
+    name: "Ana G.",
+    text: "Acabei de terminar de ler o mapa e tô em choque! Sério, ele bateu EXATAMENTE com a fase que eu tô passando agora. O que mais me impressionou foi que até uns planos pro futuro que eu tava guardando só pra mim, que ninguém sabia, apareceram ali certinho. Era exatamente o que eu precisava ler para ter coragem de colocar em prática o que eu já estava pensando. Amei demais, parece que você desenhou meu ano! Parabéns pelo trabalho, de verdade.",
     stars: 5,
   },
 ];
