@@ -12,7 +12,14 @@ import MandalaCard from "./MandalaCard";
 const TAROT_CARDS_IMAGE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663185035098/L3Jyr6D9Q6XkPqnq2Mow6v/tarot-cards-TMzbShpNrrHMWsgfdMBcHN.webp";
 
-const MERCADO_PAGO_PERGUNTA_UNICA_URL = "https://mpago.la/2dAKkry";
+const MERCADO_PAGO_PERGUNTA_UNICA_URL = "https://mpago.la/1wawHdu";
+const MERCADO_PAGO_COMBO_3_PERGUNTAS_URL = "https://mpago.la/2AjH3GM";
+const MERCADO_PAGO_SESSAO_ESTRATEGICA_URL = "https://mpago.la/1YHB12h";
+const MERCADO_PAGO_CODIGO_ESSENCIA_URL = "https://mpago.la/2nscUbs";
+const MERCADO_PAGO_IMERSAO_LILITH_URL = "https://mpago.la/1LP3RWE";
+const MERCADO_PAGO_JORNADA_ANUAL_URL = "https://mpago.la/2KoDYcw";
+const MERCADO_PAGO_JORNADA_SEMESTRAL_URL = "https://mpago.la/1CMb8L4";
+
 const MERCADO_PAGO_PENDING_URL = "#";
 
 /* ─── Types ─── */
@@ -75,7 +82,7 @@ const STANDARD_RITUALS: Ritual[] = [
     ],
     isFeatured: false,
     ctaLabel: "Agendar Combo",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+    mercadoPagoUrl: MERCADO_PAGO_COMBO_3_PERGUNTAS_URL,
   },
   {
     symbol: "☿",
@@ -94,7 +101,7 @@ const STANDARD_RITUALS: Ritual[] = [
     isFeatured: true,
     badge: "Inauguração",
     ctaLabel: "Agendar Sessão",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+    mercadoPagoUrl: MERCADO_PAGO_SESSAO_ESTRATEGICA_URL,
   },
   {
     symbol: "🔮",
@@ -112,7 +119,7 @@ const STANDARD_RITUALS: Ritual[] = [
     ],
     isFeatured: false,
     ctaLabel: "Descobrir Arquétipo",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+    mercadoPagoUrl: MERCADO_PAGO_CODIGO_ESSENCIA_URL,
   },
 ];
 
@@ -134,7 +141,7 @@ const PREMIUM_RITUAL: Ritual = {
   isFeatured: true,
   badge: "Premium · Imersão Lilith",
   ctaLabel: "Iniciar Imersão",
-  mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+  mercadoPagoUrl: MERCADO_PAGO_IMERSAO_LILITH_URL,
 };
 
 const MANDALA_RITUALS = [
@@ -146,7 +153,7 @@ const MANDALA_RITUALS = [
     price: "R$ 180",
     deliveryNote: "Digital + Notas explicativas",
     description:
-      "Um mapa estratégico. A Mandala revela as energias de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
+      "Um mapa estratégico. A Mandala revela a energia de cada mês, para planejar seu ano com clareza, consciência e alinhamento.",
     features: [
       { text: "Previsões mês a mês", isIncluded: true },
       { text: "Identificação de oportunidades", isIncluded: true },
@@ -154,7 +161,7 @@ const MANDALA_RITUALS = [
       { text: "Bônus: ARQUETIPO DE VIBRAÇAO PESSOAL", isIncluded: true },
     ],
     ctaLabel: "Fazer Mandala",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+    mercadoPagoUrl: MERCADO_PAGO_JORNADA_ANUAL_URL,
   },
   {
     mandalaName: "semestral" as const,
@@ -172,7 +179,7 @@ const MANDALA_RITUALS = [
       { text: "Sessão ao vivo", isIncluded: false },
     ],
     ctaLabel: "Mapear Semestre",
-    mercadoPagoUrl: MERCADO_PAGO_PENDING_URL,
+    mercadoPagoUrl: MERCADO_PAGO_JORNADA_SEMESTRAL_URL,
   },
 ];
 

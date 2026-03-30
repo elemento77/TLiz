@@ -53,7 +53,7 @@ export default function HeroSection() {
                 Minha missão é utilizar o Tarot como uma poderosa ferramenta de autoconhecimento, despertando a força que já habita em você, trazendo clareza para suas decisões e serenidade para trilhar uma jornada com propósito e equilíbrio.
               </p>
               <p className="mt-3 text-gold-dim text-[13px]">
-                Método de tiragem: Tarô Millennium Thoth
+                Método de tiragem: Tarô Millennium Thoth e Baralho Cigano
               </p>
             </div>
           </div>
