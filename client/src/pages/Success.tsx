@@ -57,7 +57,7 @@ export default function Success() {
                                 rel="noopener noreferrer"
                                 className="w-full sm:w-auto"
                             >
-                                <Button className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-body py-6 px-8 rounded-none text-base border-0 shadow-[0_0_15px_rgba(37,211,102,0.3)] transition-all hover:scale-105 group">
+                                <Button className="w-full btn-gold py-6 px-8 rounded-none text-base border-0 transition-all hover:scale-105 group">
                                     <MessageCircle className="w-5 h-5 mr-3" />
                                     Enviar comprovante agora
                                     <ArrowRight className="w-4 h-4 ml-3 opacity-70 group-hover:translate-x-1 transition-transform" />
