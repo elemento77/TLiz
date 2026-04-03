@@ -11,6 +11,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import { useLocation } from "wouter";
 
 const RITUAL_OPTIONS = [
   "Pergunta Única",
@@ -23,6 +24,8 @@ const RITUAL_OPTIONS = [
 ];
 
 function SuccessView() {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="min-h-screen pt-24 pb-12 flex items-center justify-center text-foreground relative">
       <motion.div
@@ -41,12 +44,12 @@ function SuccessView() {
             Sua avaliação foi enviada com sucesso e é muito importante para a
             minha jornada e para as próximas leituras.
           </p>
-          <a
-            href="/"
+          <button
+            onClick={() => setLocation("/")}
             className="font-body text-xs text-gold uppercase tracking-wider hover:text-parchment transition-colors"
           >
             &larr; Voltar ao Início
-          </a>
+          </button>
         </div>
       </motion.div>
     </div>
