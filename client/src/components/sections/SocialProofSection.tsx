@@ -8,6 +8,14 @@ import { motion } from "framer-motion";
 import { Star, Quote, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 interface Testimonial {
   id?: string;
   name: string;
@@ -58,7 +66,7 @@ function TestimonialCard({
 }) {
   return (
     <motion.div
-      className="esoteric-card p-6 relative h-full"
+      className="esoteric-card p-6 relative h-full flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -70,7 +78,7 @@ function TestimonialCard({
         strokeWidth={1}
       />
       <StarRating count={testimonial.rating} />
-      <p className="font-body text-sm text-smoke leading-relaxed mb-4">
+      <p className="font-body text-sm text-smoke leading-relaxed mb-4 flex-grow">
         "{testimonial.message}"
       </p>
       <p className="font-display text-sm text-gold-dim">
@@ -116,9 +124,7 @@ export default function SocialProofSection() {
         if (error) throw error;
 
         if (data && data.length > 0) {
-          // Combine static with dynamic, or just use dynamic if preferred
-          // Here we show dynamic first, then static
-          setTestimonials([...data, ...STATIC_TESTIMONIALS].slice(0, 6));
+          setTestimonials([...data, ...STATIC_TESTIMONIALS]);
         }
       } catch (err) {
         console.error("Error fetching testimonials:", err);
@@ -163,20 +169,36 @@ export default function SocialProofSection() {
           <span className="text-gold-dim text-sm">✦</span>
         </div>
 
-        {/* Testimonials grid */}
+        {/* Testimonials Carousel */}
         {isLoading ? (
           <div className="flex justify-center py-10">
             <Loader2 className="w-8 h-8 text-gold animate-spin" />
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.id || index}
-                testimonial={testimonial}
-                index={index}
-              />
-            ))}
+          <div className="px-10">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-5">
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem
+                    key={testimonial.id || index}
+                    className="pl-5 md:basis-1/2 lg:basis-1/3"
+                  >
+                    <TestimonialCard
+                      testimonial={testimonial}
+                      index={index}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="border-gold/20 text-gold hover:bg-gold/10 hover:text-gold -left-4 md:-left-8" />
+              <CarouselNext className="border-gold/20 text-gold hover:bg-gold/10 hover:text-gold -right-4 md:-right-8" />
+            </Carousel>
           </div>
         )}
       </div>
