@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Success from "./pages/Success";
 import Feedback from "./pages/Feedback";
+import AdminTestimonials from "./pages/AdminTestimonials";
 
 
 // Calculate base path for wouter (remove trailing slash)
@@ -19,6 +20,7 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/sucesso"} component={Success} />
         <Route path={"/feedback"} component={Feedback} />
+        <Route path={"/admin/depoimentos"} component={AdminTestimonials} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

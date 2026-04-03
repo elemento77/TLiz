@@ -6,9 +6,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Send, Sparkles } from "lucide-react";
+import { Star, Send, Sparkles, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 const RITUAL_OPTIONS = [
   "Pergunta Única",
@@ -92,10 +94,37 @@ export default function Feedback() {
   const [rating, setRating] = useState<number>(0);
   const [hoveredRating, setHoveredRating] = useState<number>(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitted(true);
+    setIsLoading(true);
+
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      service: formData.get("service") as string,
+      rating: rating,
+      message: formData.get("message") as string,
+      consent: formData.get("consent") === "on",
+      status: "pending"
+    };
+
+    try {
+      const { error } = await supabase
+        .from('testimonials')
+        .insert([data]);
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      toast.success("Depoimento enviado com sucesso!");
+    } catch (error: any) {
+      console.error("Error submitting feedback:", error);
+      toast.error("Erro ao enviar depoimento. Tente novamente.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -226,10 +255,16 @@ export default function Feedback() {
                 <Button
                   type="submit"
                   className="w-full btn-gold text-sm group flex justify-center py-6"
-                  disabled={rating === 0}
+                  disabled={rating === 0 || isLoading}
                 >
-                  Enviar meu depoimento
-                  <Send className="w-4 h-4 ml-2 opacity-70 group-hover:translate-x-1 transition-transform" />
+                  {isLoading ? (
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                  ) : (
+                    <>
+                      Enviar meu depoimento
+                      <Send className="w-4 h-4 ml-2 opacity-70 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
               </div>
             </form>

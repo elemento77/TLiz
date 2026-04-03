@@ -3,24 +3,33 @@
  * Glassmorphism cards with gold accents. Atmospheric and intimate.
  */
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
-const TESTIMONIALS = [
+interface Testimonial {
+  id?: string;
+  name: string;
+  message: string;
+  rating: number;
+}
+
+const STATIC_TESTIMONIALS: Testimonial[] = [
   {
     name: "Camila R.",
-    text: "A leitura foi cirúrgica. Ela tocou em pontos que eu nem tinha falado. Me deu clareza num momento de muita confusão.",
-    stars: 5,
+    message: "A leitura foi cirúrgica. Ela tocou em pontos que eu nem tinha falado. Me deu clareza num momento de muita confusão.",
+    rating: 5,
   },
   {
     name: "Thiago M.",
-    text: "Fui cético, mas saí da sessão com respostas que eu buscava há meses. Vale cada centavo.",
-    stars: 5,
+    message: "Fui cético, mas saí da sessão com respostas que eu buscava há meses. Vale cada centavo.",
+    rating: 5,
   },
   {
     name: "Ana G.",
-    text: "Acabei de terminar de ler o mapa e tô em choque! Sério, ele bateu EXATAMENTE com a fase que eu tô passando agora. O que mais me impressionou foi que até uns planos pro futuro que eu tava guardando só pra mim, que ninguém sabia, apareceram ali certinho. Era exatamente o que eu precisava ler para ter coragem de colocar em prática o que eu já estava pensando. Amei demais, parece que você desenhou meu ano! Parabéns pelo trabalho, de verdade.",
-    stars: 5,
+    message: "Acabei de terminar de ler o mapa e tô em choque! Sério, ele bateu EXATAMENTE com a fase que eu tô passando agora. O que mais me impressionou foi que até uns planos pro futuro que eu tava guardando só pra mim, que ninguém sabia, apareceram ali certinho. Era exatamente o que eu precisava ler para ter coragem de colocar em prática o que eu já estava pensando. Amei demais, parece que você desenhou meu ano! Parabéns pelo trabalho, de verdade.",
+    rating: 5,
   },
 ];
 
@@ -44,12 +53,12 @@ function TestimonialCard({
   testimonial,
   index,
 }: {
-  testimonial: (typeof TESTIMONIALS)[0];
+  testimonial: Testimonial;
   index: number;
 }) {
   return (
     <motion.div
-      className="esoteric-card p-6 relative"
+      className="esoteric-card p-6 relative h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -60,9 +69,9 @@ function TestimonialCard({
         className="absolute top-4 right-4 text-gold/10"
         strokeWidth={1}
       />
-      <StarRating count={testimonial.stars} />
+      <StarRating count={testimonial.rating} />
       <p className="font-body text-sm text-smoke leading-relaxed mb-4">
-        "{testimonial.text}"
+        "{testimonial.message}"
       </p>
       <p className="font-display text-sm text-gold-dim">
         — {testimonial.name}
@@ -92,6 +101,35 @@ function StatItem({ stat, index }: { stat: (typeof STATS)[0]; index: number }) {
 }
 
 export default function SocialProofSection() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(STATIC_TESTIMONIALS);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTestimonials() {
+      try {
+        const { data, error } = await supabase
+          .from('testimonials')
+          .select('name, message, rating')
+          .eq('status', 'approved')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          // Combine static with dynamic, or just use dynamic if preferred
+          // Here we show dynamic first, then static
+          setTestimonials([...data, ...STATIC_TESTIMONIALS].slice(0, 6));
+        }
+      } catch (err) {
+        console.error("Error fetching testimonials:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchTestimonials();
+  }, []);
+
   return (
     <section className="py-16">
       <div className="container">
@@ -126,15 +164,21 @@ export default function SocialProofSection() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {TESTIMONIALS.map((testimonial, index) => (
-            <TestimonialCard
-              key={testimonial.name}
-              testimonial={testimonial}
-              index={index}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="flex justify-center py-10">
+            <Loader2 className="w-8 h-8 text-gold animate-spin" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial.id || index}
+                testimonial={testimonial}
+                index={index}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
