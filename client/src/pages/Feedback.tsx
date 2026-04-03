@@ -44,12 +44,12 @@ function SuccessView() {
             Sua avaliação foi enviada com sucesso e é muito importante para a
             minha jornada e para as próximas leituras.
           </p>
-          <button
-            onClick={() => setLocation("/")}
+          <a
+            href={import.meta.env.BASE_URL}
             className="font-body text-xs text-gold uppercase tracking-wider hover:text-parchment transition-colors"
           >
             &larr; Voltar ao Início
-          </button>
+          </a>
         </div>
       </motion.div>
     </div>
