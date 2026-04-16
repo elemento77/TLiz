@@ -176,7 +176,7 @@ export default function AdminTestimonials() {
                     autoComplete="username"
                     required
                     className="bg-background/50 border-gold/20"
-                    placeholder={adminEmailEnv || "seu@email.com"}
+                    placeholder="voce@exemplo.com"
                   />
                 </div>
                 <div className="space-y-2">
