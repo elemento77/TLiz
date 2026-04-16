@@ -21,6 +21,18 @@ CREATE POLICY "Allow public insert" ON testimonials
 CREATE POLICY "Allow public read approved" ON testimonials
   FOR SELECT USING (status = 'approved');
 
--- Create policy for admin to manage all (you can restrict this later with auth)
-CREATE POLICY "Allow admin all" ON testimonials
-  FOR ALL USING (true);
+-- Admin: só a conta autorizada (mesmo e-mail no Auth e nas políticas abaixo). Ver pasta supabase/migrations/.
+DROP POLICY IF EXISTS "Allow admin all" ON testimonials;
+
+CREATE POLICY "Admin testimonials select all" ON testimonials
+  FOR SELECT TO authenticated
+  USING (lower((auth.jwt() ->> 'email')) = lower('mentinho7@hotmail.com'));
+
+CREATE POLICY "Admin testimonials update" ON testimonials
+  FOR UPDATE TO authenticated
+  USING (lower((auth.jwt() ->> 'email')) = lower('mentinho7@hotmail.com'))
+  WITH CHECK (lower((auth.jwt() ->> 'email')) = lower('mentinho7@hotmail.com'));
+
+CREATE POLICY "Admin testimonials delete" ON testimonials
+  FOR DELETE TO authenticated
+  USING (lower((auth.jwt() ->> 'email')) = lower('mentinho7@hotmail.com'));
